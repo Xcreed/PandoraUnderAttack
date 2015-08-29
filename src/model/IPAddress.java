@@ -1,5 +1,5 @@
 
-package GameEngineSystem;
+package model;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
