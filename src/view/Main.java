@@ -1,11 +1,12 @@
 package view;
 
+import controller.Clan;
 import model.SimpleLinkedList;
 
 public class Main {
 	
 	
-	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void main(String[] args) {
 	
 		SimpleLinkedList list = new SimpleLinkedList();
@@ -18,6 +19,8 @@ public class Main {
 		
 		System.out.println(list.print());
 	}
+	
+	
 	
 	
 

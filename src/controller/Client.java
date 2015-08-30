@@ -1,7 +1,12 @@
 package controller;
 
 import model.IPAddress;
-
+/**
+ * A client will be used from a smartphone to control
+ * all the functions to contribute to a clan
+ * @author Xcreed
+ *
+ */
 public class Client {
 	
 	private Resources resources = new Resources();
@@ -10,14 +15,20 @@ public class Client {
 	private IPAddress ip;
 	private Server server;//Not sure
 	private int rank;//Not defined
-	private double importance;//Not defined exactly
+	private int importance;//Not defined exactly
 	private ChatRoom chatRoom;//Not sure
-	private List clans = new ArrayList<Clan>();
+	//Lets just have one clan per client
+	//private List clans = new ArrayList<Clan>(); //**************************
 	private GPS location;
 	private boolean enableForBattle = true;
 	
 	public Client() {
-		
+		loadStats();
+		if (saved) {
+			game.load();
+		} else { 
+			
+		}
 	}
 	
 	//Can be boolean
@@ -39,7 +50,9 @@ public class Client {
 	}
 	
 	
-	
+	private void loadStats(){
+		
+	}
 	
 
 }

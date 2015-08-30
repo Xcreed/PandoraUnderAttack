@@ -13,13 +13,12 @@ public class SimpleLinkedList<T extends Comparable<? super T>> {
 		
 		if (_head == null){
 			_head = _tail = newNode;
-		}else { //List already has at least one element
+		}else { 						//List already has at least one element
 			SimpleNode tmp = _head;
-			while(!(tmp == null)){
+			newNode.setNext(tmp);
+			_head = newNode;
 				
 			}
-			
-			
 			
 			//newNode.setNext(_head);
 			//_head = newNode;
@@ -43,7 +42,7 @@ public class SimpleLinkedList<T extends Comparable<? super T>> {
 //				newNode.setNext(tmp.getNext());
 //				tmp.setNext(newNode);
 //			}
-		}
+	
 		
 		
 	}
@@ -66,7 +65,7 @@ public class SimpleLinkedList<T extends Comparable<? super T>> {
 		}
 	}
 	
-	//return the lenth of the complete node
+	//return the length of the complete node
 	public int getLength() {
 		
 		int l = 0;
@@ -108,12 +107,15 @@ public class SimpleLinkedList<T extends Comparable<? super T>> {
 	public StringBuilder print(){	
 		
 		StringBuilder list = new StringBuilder();
+		System.out.println("printing");
 		SimpleNode tmp = _head;
 		
 		while(!(tmp.getNext() == null)){
-			tmp = tmp.getNext();
+			System.out.println(list + "ha");
 			list.append(tmp.getData());
+			tmp = tmp.getNext();
 		}
+		System.out.println(list);
 		return list;
 	}
 	
