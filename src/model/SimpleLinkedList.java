@@ -7,19 +7,22 @@ public class SimpleLinkedList<T extends Comparable<? super T>> {
 	private SimpleNode _head = null;
 	private SimpleNode _tail = null;
 	
-	//Insert at the beginning
-	public void insertBeginning(T pData) {
+	public void insertBeginning(T pData) { //Insert at the beginning
 		
-		SimpleNode newNode = new SimpleNode(pData);
+		SimpleNode newNode = new SimpleNode(pData); //New element to be inserted 
 		
-		//List empty, assign head and tail to new node
-		if (_head == null)
+		if (_head == null){
 			_head = _tail = newNode;
-		
-		else { //List already has at least one element
+		}else { //List already has at least one element
+			SimpleNode tmp = _head;
+			while(!(tmp == null)){
+				
+			}
 			
-			newNode.setNext(_head);
-			_head = newNode;
+			
+			
+			//newNode.setNext(_head);
+			//_head = newNode;
 			
 /*****All of these is to try to insert in order*****/
 //			if (_head.getData() == newNode.getData()) {
@@ -45,18 +48,25 @@ public class SimpleLinkedList<T extends Comparable<? super T>> {
 		
 	}
 	
+	//insert an element at the last position of the complete node
 	public void insertLast(T pData) {
 		
 		SimpleNode newNode = new SimpleNode(pData);
 		
-		_tail.setNext(newNode);
-		newNode.setNext(null);
-		_tail = newNode;
-		
-		//for (SimpleNode tmp = _head; !(tmp.getNext().getNext() == null); tmp = tmp.getNext());
-
+		if(_head == null){
+			_head = _tail = newNode;
+		}else{
+			SimpleNode tmp = _head; //_tail
+			while(!(tmp.getNext() == null)){
+				tmp = tmp.getNext();
+			}
+			tmp.setNext(newNode);
+			newNode.setNext(null);
+			_tail = newNode;
+		}
 	}
 	
+	//return the lenth of the complete node
 	public int getLength() {
 		
 		int l = 0;
@@ -66,54 +76,64 @@ public class SimpleLinkedList<T extends Comparable<? super T>> {
 			l++;
 			tmp = tmp.getNext();
 		}
-		
 		return l;
-		
-//		while (_head != _tail, )
 	}
 	
 	
+	//delete one node (element) 
 	public void delete (int pData) {
 		
-		if (_head == null)
+		if (_head == null){
 			return;
-		
-		//added (int) for usability
-		else if ((int)_head.getData() == pData) {
+		}else if ((int)_head.getData() == pData) { //added (int) for usability
 			_head = _head.getNext();
 			return;
 		}
-		
 		SimpleNode tmp = _head;
 		
-		//added (int) for usability
-		while (tmp.getNext() != null & (int) tmp.getNext().getData() != pData) {
-			tmp = tmp.getNext();
-						
-			if (tmp.getNext() == null) 
+		while (tmp.getNext() != null & (int) tmp.getNext().getData() != pData) { //added (int) for usability
+			tmp = tmp.getNext();					
+			if (tmp.getNext() == null){
 				return;
-			
-			else if (tmp.getNext() == _tail) {
+			}else if (tmp.getNext() == _tail) {
 				_tail = tmp;
 				_tail.setNext(null);
-			}
-			
-			else 
+			}else{
 				tmp.setNext(tmp.getNext());
-		}
-			
+			}
+		}		
 	}
 	
-	public String print() {
+	//print the complete node as a StringBuilder
+	public StringBuilder print(){	
 		
-		//Not working
-		String list = "[";
-		for (SimpleNode tmp = _head; !(tmp.getNext() == null); tmp = tmp.getNext()) {
-			list = list + tmp.getData() + ", ";
+		StringBuilder list = new StringBuilder();
+		SimpleNode tmp = _head;
+		
+		while(!(tmp.getNext() == null)){
+			tmp = tmp.getNext();
+			list.append(tmp.getData());
 		}
-		
-		list = list + " ]";
 		return list;
 	}
-
+	
+	public boolean search(T pData){
+		
+		if(getLength() == 0){
+			return false;
+		}else{
+			 SimpleNode tmp = _head;
+			 boolean bool = false;
+			 while(!(tmp.getNext() == null)){
+				 if(tmp.getData() == pData){
+					 bool = true;
+					 break;
+				 }else{
+					 tmp = tmp.getNext(); 
+				 }
+				 
+			 }
+			 return bool;
+		}
+	}
 }
