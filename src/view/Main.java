@@ -10,13 +10,20 @@ public class Main {
 	
 		SimpleLinkedList list = new SimpleLinkedList();
 		
-		list.insertBeginning(1);
-		list.insertBeginning(2);
-		list.insertBeginning(3);
+		list.insertBeginning(40);
+		list.insertBeginning(41);
+		list.insertBeginning(42);
+		list.insertBeginning(43);
 		list.insertBeginning(4);
-		list.insertBeginning(5);
 		
-		System.out.println(list.print());
+		list.print();
+		
+		System.out.println(list.getLength());
+		System.out.println("--------------------------------");
+		//System.out.println(list.print());
+		System.out.println("--------------------------------");
+		System.out.println("prueba");
+		
 	}
 	
 	

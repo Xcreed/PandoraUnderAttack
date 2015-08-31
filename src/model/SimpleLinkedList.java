@@ -14,38 +14,9 @@ public class SimpleLinkedList<T extends Comparable<? super T>> {
 		if (_head == null){
 			_head = _tail = newNode;
 		}else { //List already has at least one element
-			SimpleNode tmp = _head;
-			while(!(tmp == null)){
-				
+			newNode.setNext(_head);
+			_head = newNode;		
 			}
-			
-			
-			
-			//newNode.setNext(_head);
-			//_head = newNode;
-			
-/*****All of these is to try to insert in order*****/
-//			if (_head.getData() == newNode.getData()) {
-//				newNode.setNext(_head);
-//				_head = newNode;
-//			}
-//			
-//			else if (_tail.getData().equals(newNode.getData())) {
-//				_tail.setNext(newNode);
-//				_tail = newNode;
-//			}
-
-//			else {
-//				
-//				SimpleNode tmp = _head;
-//				while(tmp.getNext().getData() < pData)
-//					tmp = tmp.getNext();
-//				newNode.setNext(tmp.getNext());
-//				tmp.setNext(newNode);
-//			}
-		}
-		
-		
 	}
 	
 	//insert an element at the last position of the complete node
@@ -57,12 +28,12 @@ public class SimpleLinkedList<T extends Comparable<? super T>> {
 			_head = _tail = newNode;
 		}else{
 			SimpleNode tmp = _head; //_tail
-			while(!(tmp.getNext() == null)){
+			while(tmp!= null){
 				tmp = tmp.getNext();
 			}
-			tmp.setNext(newNode);
-			newNode.setNext(null);
+			//tmp.setNext(newNode);
 			_tail = newNode;
+			//newNode.setNext(null);
 		}
 	}
 	
@@ -105,33 +76,33 @@ public class SimpleLinkedList<T extends Comparable<? super T>> {
 	}
 	
 	//print the complete node as a StringBuilder
-	public StringBuilder print(){	
+	public void print(){	
 		
 		StringBuilder list = new StringBuilder();
 		SimpleNode tmp = _head;
 		
-		while(!(tmp.getNext() == null)){
+		while(tmp != null){
+			System.out.println(list);
+			//list.append(tmp.getData());
 			tmp = tmp.getNext();
-			list.append(tmp.getData());
 		}
-		return list;
+		//return list;
 	}
 	
 	public boolean search(T pData){
 		
+		boolean bool = false;
 		if(getLength() == 0){
-			return false;
+			return bool;
 		}else{
-			 SimpleNode tmp = _head;
-			 boolean bool = false;
-			 while(!(tmp.getNext() == null)){
+			 SimpleNode tmp = _head; 
+			 while(tmp != null){
 				 if(tmp.getData() == pData){
 					 bool = true;
 					 break;
 				 }else{
 					 tmp = tmp.getNext(); 
-				 }
-				 
+				 } 
 			 }
 			 return bool;
 		}

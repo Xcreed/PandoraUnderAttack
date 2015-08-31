@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.ArrayList;
+
 import model.IPAddress;
 
 public class Client {
@@ -11,9 +13,9 @@ public class Client {
 	private Server server;//Not sure
 	private int rank;//Not defined
 	private double importance;//Not defined exactly
-	private ChatRoom chatRoom;//Not sure
-	private List clans = new ArrayList<Clan>();
-	private GPS location;
+	//private ChatRoom chatRoom;//Not sure
+	//private List clans = new ArrayList<Clan>();
+	//private GPS location;
 	private boolean enableForBattle = true;
 	
 	public Client() {
