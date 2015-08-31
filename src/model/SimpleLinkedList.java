@@ -119,6 +119,7 @@ public class SimpleLinkedList<T extends Comparable<? super T>> {
 		return list;
 	}
 	
+	//return boolean while looking a special element
 	public boolean search(T pData){
 		
 		if(getLength() == 0){
