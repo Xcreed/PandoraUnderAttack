@@ -1,6 +1,9 @@
 package controller;
 
+import java.util.Scanner;
+
 import model.IPAddress;
+import model.Json2;
 /**
  * A client will be used from a smartphone to control
  * all the functions to contribute to a clan
@@ -18,17 +21,21 @@ public class Client {
 	private int importance;//Not defined exactly
 	private ChatRoom chatRoom;//Not sure
 	//Lets just have one clan per client
-	//private List clans = new ArrayList<Clan>(); //**************************
-	private GPS location;
+	private Clan clan; //**************************
+	//private GPS location;
 	private boolean enableForBattle = true;
 	
 	public Client() {
-		loadStats();
+		//Loads stats from json
+		//Checks if the user has been saved
+		//If not, takes the user to create a new one
+		/*loadStats();
 		if (saved) {
 			game.load();
 		} else { 
-			
-		}
+			newPlayer();
+		}*/
+		newPlayer();
 	}
 	
 	//Can be boolean
@@ -54,5 +61,23 @@ public class Client {
 		
 	}
 	
+	private void newPlayer() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter a username:");
+		id = scanner.nextLine();
+		scanner.reset();
+		System.out.println("Enter a password:");
+		password = scanner.nextLine();
+		Json2 json = new Json2(id,password);
+		json.write();
+		System.out.println(this.id);
+		System.out.println(this.password);
 
+//		if (clan.hasCreator()) {
+//			return;
+//		} else {
+//			Creator creator = new Creator();
+//		}
+		
+	}
 }

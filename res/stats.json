@@ -1,10 +1,1 @@
-{ "clans" : [
-	{"clients" : [
-		{"saved":false, "id":"", "pw":"", "rank":0, "importance": 1, "location":"", "creator": false}
-	]}
-	{"relics" : [
-		{"location":"", "clan":""}
-	]}
-]}
-		
-		
+{"creator":false,"importance":1,"pw":"..","clan":"","rank":0,"location":"","id":"JP"}

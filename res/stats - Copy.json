@@ -1,0 +1,8 @@
+{ "clans" : [
+	{"clients" : [
+		{"saved":false, "id":"", "pw":"", "rank":0, "importance": 1, "location":"", "creator": false, "clan":""}
+	]}	
+	{"relics" : [
+		{"location":"", "clan":""}
+	]}
+]}

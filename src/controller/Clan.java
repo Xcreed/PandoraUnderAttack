@@ -54,5 +54,14 @@ public class Clan implements Observer{
 	public List getClients() {
 		return clients;
 	}
+	
+	public boolean hasCreator() {
+		if (creator != null) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 }
