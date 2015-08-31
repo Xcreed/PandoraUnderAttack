@@ -9,7 +9,8 @@ public class Main {
 	public static void main(String[] args) {
 	
 		Client jp = new Client();
-		//Json2 json = new Json2("jp","..");
-		//json.write();
+		//Json json = new Json();
+//		Json2 json = new Json2("jp","..",0,1);
+//		json.write();
 	}
 }

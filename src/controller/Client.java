@@ -3,7 +3,7 @@ package controller;
 import java.util.Scanner;
 
 import model.IPAddress;
-import model.Json2;
+import model.Json;
 /**
  * A client will be used from a smartphone to control
  * all the functions to contribute to a clan
@@ -68,10 +68,10 @@ public class Client {
 		scanner.reset();
 		System.out.println("Enter a password:");
 		password = scanner.nextLine();
-		Json2 json = new Json2(id,password);
+		Json json = new Json(id,password,0,1); //Missing clan, location and creator
 		json.write();
-		System.out.println(this.id);
-		System.out.println(this.password);
+//		System.out.println(this.id);
+//		System.out.println(this.password);
 
 //		if (clan.hasCreator()) {
 //			return;
