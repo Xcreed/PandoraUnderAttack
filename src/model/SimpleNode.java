@@ -1,4 +1,11 @@
 package model;
+/**
+ * Class for the LinkedList
+ * 
+ * @author Randy
+ *
+ * @param <T>
+ */
 
 public class SimpleNode<T extends Comparable<? super T>> {
 	
@@ -6,10 +13,15 @@ public class SimpleNode<T extends Comparable<? super T>> {
 	
 	private SimpleNode<T> next;
 	private T data;
+	//private long size;
 	
+	
+	public SimpleNode (T data) {
+		this.data = data;
+	}	
 	
 	public void setNext(SimpleNode<T> next) {
-		next = this.next;
+		this.next = next;
 	}
 	
 	public SimpleNode<T> getNext() {
@@ -19,9 +31,4 @@ public class SimpleNode<T extends Comparable<? super T>> {
 	public Object getData() {
 		return data;
 	}
-	
-	public SimpleNode (T data) {
-		data = this.data;
-	}	
-
 }
