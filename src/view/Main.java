@@ -1,6 +1,7 @@
 package view;
 
 import controller.Client;
+import model.Json;
 
 public class Main {
 	
@@ -8,9 +9,8 @@ public class Main {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void main(String[] args) {
 	
-		Client jp = new Client();
-		//Json json = new Json();
-//		Json2 json = new Json2("jp","..",0,1);
-//		json.write();
+		//Client jp = new Client();
+		Json json = new Json("jp","..",0,1);
+		json.read();
 	}
 }

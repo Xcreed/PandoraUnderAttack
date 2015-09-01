@@ -1,8 +1,11 @@
 { "clans" : [
-	{"clients" : [
-		{"saved":false, "id":"", "pw":"", "rank":0, "importance": 1, "location":"", "creator": false, "clan":""}
-	]}	
+	{"clients": [
+		{"saved":false, "id":"JP", "pw":"", "rank":31, "importance": 300, "location":"", "creator": false, "clan":"F2"},
+		{"saved":false, "id":"Xcreed", "pw":"", "rank":80, "importance": 750, "location":"", "creator": false, "clan":"F1"}
+	]},	
 	{"relics" : [
-		{"location":"", "clan":""}
+		{"location":"40, 322", "clan":"F2"},
+		{"location":"300, 21", "clan":"F2"},
+		{"location":"1, 0", "clan":"F2"}
 	]}
 ]}
