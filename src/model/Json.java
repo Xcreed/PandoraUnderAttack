@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Iterator;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -13,6 +12,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import controller.Clan;
+import controller.Client;
 
 /**
  * Read and writes a json file
@@ -48,6 +48,13 @@ public class Json {
 		this.id = id;
 		this.rank = rank;
 		this.importance = importance;
+		
+	}
+	
+	/**
+	 * Constructor to use the class
+	 */
+	public Json() {
 		
 	}
 	
@@ -127,6 +134,9 @@ public class Json {
 		   //Which clan is the user from
 		   String member = (String) client.get("clan");
 		   System.out.println("Is member from the clan: " + member);
+		   
+		   //Creates a new client when the file is read
+		   Client gameMember = new Client(id, pw, rank, importance, location, member);
 	   }
 	   
 	   for (int i = 0; i < relicsArray.size(); i++) {
@@ -138,6 +148,7 @@ public class Json {
 		   //Clan that has the relic
 		   relicClan = (String) relic.get("clan");
 		   System.out.println("Relic belongs to the clan: " + relicClan);
+		   
 	   }
 
 	   System.out.println("Done reading file");

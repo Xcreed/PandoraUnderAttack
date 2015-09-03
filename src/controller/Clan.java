@@ -29,6 +29,7 @@ public class Clan implements Observer{
 	 * The clans will have resources
 	 */
 	private Resources resources;
+	private List clients;//List of clients the clan will have
 	
 	
 	public Clan() {
