@@ -20,11 +20,8 @@ public class Clan implements Observer{
 	/**
 	 * Each clan will have more than 1 client
 	 */
-	private List clients;
-	/**
-	 * Creator will set an emblem for the clan
-	 */
-	private Image emblem;
+	//private List clients;
+	//private Image emblem;
 	/**
 	 * The clans will have resources
 	 */
