@@ -17,6 +17,10 @@ public class Clan implements Observer{
 	 * Clan's most valuable object 
 	 */
 	private Relic relic;
+<<<<<<< HEAD
+	//private List clients;
+	//private Image emblem;
+=======
 	/**
 	 * Each clan will have more than 1 client
 	 */
@@ -28,6 +32,7 @@ public class Clan implements Observer{
 	/**
 	 * The clans will have resources
 	 */
+>>>>>>> master
 	private Resources resources;
 	private List clients;//List of clients the clan will have
 	

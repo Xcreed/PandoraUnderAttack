@@ -1,6 +1,12 @@
 package controller;
 
+<<<<<<< HEAD
+import java.util.ArrayList;
+
+import model.IPAddress;
+=======
 import java.util.Scanner;
+>>>>>>> master
 
 import model.IPAddress;
 import model.Json;
@@ -17,12 +23,20 @@ public class Client {
 	private String id;
 	private IPAddress ip;
 	private Server server;//Not sure
+<<<<<<< HEAD
+	private int rank;//Not defined
+	private double importance;//Not defined exactly
+	//private ChatRoom chatRoom;//Not sure
+	//private List clans = new ArrayList<Clan>();
+	//private GPS location;
+=======
 	private long rank;//Not defined
 	private long importance;//Not defined exactly
 	private ChatRoom chatRoom;//Not sure
 	//Lets just have one clan per client
 	private String clan; //Using clan id
 	private String location; //String meanwhile
+>>>>>>> master
 	private boolean enableForBattle = true;
 	private Json json = new Json();
 	
