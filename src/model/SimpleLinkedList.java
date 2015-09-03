@@ -19,7 +19,7 @@ public class SimpleLinkedList<T extends Comparable<? super T>> {
 		
 		if (_head == null){
 			_head = _tail = newNode;
-		}else { //List already has at least one element
+		}else { 						//List already has at least one element
 			newNode.setNext(_head);
 			_head = newNode;		
 			}
@@ -89,16 +89,21 @@ public class SimpleLinkedList<T extends Comparable<? super T>> {
 	public StringBuilder print(){	
 		
 		StringBuilder list = new StringBuilder();
+		System.out.println("printing");
 		SimpleNode tmp = _head;
 		
 		while(tmp != null){
 			//System.out.println(list);
 			list.append(tmp.getData());
+			System.out.println(list + "ha");
+			list.append(tmp.getData());
 			tmp = tmp.getNext();
 		}
+		System.out.println(list);
 		return list;
 	}
 	
+	//return boolean while looking a special element
 	public boolean search(T pData){
 		
 		boolean bool = false;

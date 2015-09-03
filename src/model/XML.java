@@ -10,7 +10,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 /**
- * Class to access the xml file for the ducks' stats
+ * Class to access the xml file for the clients and clans stats
  * @author Xcreed
  */
 @SuppressWarnings("unused")
