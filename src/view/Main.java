@@ -1,15 +1,21 @@
 package view;
 
+<<<<<<< HEAD
 import java.util.Scanner;
 
 import model.SimpleLinkedList;
+=======
+import controller.Client;
+import model.Json;
+>>>>>>> master
 
 public class Main {
 	
 	
-	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void main(String[] args) {
 	
+<<<<<<< HEAD
 		Scanner sc = new Scanner(System.in);
 		
 		
@@ -39,8 +45,10 @@ public class Main {
 		System.out.println(list.print());
 		
 		
+=======
+		//Client jp = new Client();
+		Json json = new Json("jp","..",0,1);
+		json.read();
+>>>>>>> master
 	}
-	
-	
-
 }

@@ -19,10 +19,45 @@ public class SimpleLinkedList<T extends Comparable<? super T>> {
 		
 		if (_head == null){
 			_head = _tail = newNode;
+<<<<<<< HEAD
 		}else { //List already has at least one element
 			newNode.setNext(_head);
 			_head = newNode;		
 			}
+=======
+		}else { 						//List already has at least one element
+			SimpleNode tmp = _head;
+			newNode.setNext(tmp);
+			_head = newNode;
+				
+			}
+			
+			//newNode.setNext(_head);
+			//_head = newNode;
+			
+/*****All of these is to try to insert in order*****/
+//			if (_head.getData() == newNode.getData()) {
+//				newNode.setNext(_head);
+//				_head = newNode;
+//			}
+//			
+//			else if (_tail.getData().equals(newNode.getData())) {
+//				_tail.setNext(newNode);
+//				_tail = newNode;
+//			}
+
+//			else {
+//				
+//				SimpleNode tmp = _head;
+//				while(tmp.getNext().getData() < pData)
+//					tmp = tmp.getNext();
+//				newNode.setNext(tmp.getNext());
+//				tmp.setNext(newNode);
+//			}
+	
+		
+		
+>>>>>>> master
 	}
 	
 	//Insert an element at the last position of the complete node
@@ -89,16 +124,24 @@ public class SimpleLinkedList<T extends Comparable<? super T>> {
 	public StringBuilder print(){	
 		
 		StringBuilder list = new StringBuilder();
+		System.out.println("printing");
 		SimpleNode tmp = _head;
 		
+<<<<<<< HEAD
 		while(tmp != null){
 			//System.out.println(list);
+=======
+		while(!(tmp.getNext() == null)){
+			System.out.println(list + "ha");
+>>>>>>> master
 			list.append(tmp.getData());
 			tmp = tmp.getNext();
 		}
+		System.out.println(list);
 		return list;
 	}
 	
+	//return boolean while looking a special element
 	public boolean search(T pData){
 		
 		boolean bool = false;
