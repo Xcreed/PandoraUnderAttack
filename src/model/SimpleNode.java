@@ -1,33 +1,38 @@
 package model;
 /**
- * Class for the LinkedList
+ * Class for the simples nodes for 
  * 
  * @author Randy
  *
- * @param <T>
+ * @param <T>: generic object
  */
 
 public class SimpleNode<T extends Comparable<? super T>> {
 	
-	//Changed T for Object
 	
-	private SimpleNode<T> next;
-	private T data;
-	//private long size;
+	private SimpleNode<T> next; // basic node for next
+	private T data; 			//data/element to be inserted
 	
 	
+	
+	//constructor
 	public SimpleNode (T data) {
 		this.data = data;
 	}	
 	
+	//set the node for the next one
 	public void setNext(SimpleNode<T> next) {
 		this.next = next;
 	}
 	
+	//get the next node of the list
 	public SimpleNode<T> getNext() {
 		return next;
+
 	}
-	
+
+
+	//get the data of an node
 	public Object getData() {
 		return data;
 	}
