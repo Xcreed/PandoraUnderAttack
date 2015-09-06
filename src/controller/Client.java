@@ -1,9 +1,9 @@
 package controller;
 
-import java.util.Scanner;
+import java.util.ArrayList;
 
 import model.IPAddress;
-import model.Json2;
+import model.Json;
 /**
  * A client will be used from a smartphone to control
  * all the functions to contribute to a clan
@@ -17,14 +17,17 @@ public class Client {
 	private String id;
 	private IPAddress ip;
 	private Server server;//Not sure
-	private int rank;//Not defined
-	private int importance;//Not defined exactly
-	private ChatRoom chatRoom;//Not sure
-	//Lets just have one clan per client
-	private Clan clan; //**************************
+	private long rank;//Not defined
+	private long importance;//Not defined exactly
+	//private ChatRoom chatRoom;//Not sure
+	//private List clans = new ArrayList<Clan>();
 	//private GPS location;
 	private boolean enableForBattle = true;
+	private Json json = new Json();
 	
+	/**
+	 * Works for a new player to be created
+	 */
 	public Client() {
 		//Loads stats from json
 		//Checks if the user has been saved
@@ -38,12 +41,51 @@ public class Client {
 		newPlayer();
 	}
 	
-	//Can be boolean
-	private void checkPw() {
+	/**
+	 * Loads stats from an already created user
+	 * @param id
+	 * @param pw
+	 * @param rank
+	 * @param importance
+	 * @param location
+	 */
+	public Client(String id, String pw, long rank, long importance, String location,
+			String clan) {
+		this.id = id;
+		this.password = pw;
+		this.rank = rank;
+		this.location = location;
+		this.importance = importance;
+		this.clan = clan;
+		checkClan(clan);
+	}
+	
+	/**
+	 * Checks if the client is inside the clan
+	 * If not, will ask to join
+	 * @param clan
+	 */
+	private void checkClan(String clan) {
+		if (Clan.clients.search(id)) {
+			//Is inside the clan, able to play
+		} else {
+			System.out.println("You are not in this clan");
+			joinClan();
+		}
 		
 	}
 	
-	public void joinClan(Clan desiredClan) {
+	/**
+	 * Adds client to the list of clients of the clan
+	 * <<Adds id or full client instance?>>
+	 */
+	private void joinClan() {
+		Clan.clients.add(this.id);
+		
+	}
+
+	//Can be boolean
+	private void checkPw() {
 		
 	}
 	
@@ -58,7 +100,7 @@ public class Client {
 	
 	
 	private void loadStats(){
-		
+		json.read();
 	}
 	
 	private void newPlayer() {
@@ -68,10 +110,10 @@ public class Client {
 		scanner.reset();
 		System.out.println("Enter a password:");
 		password = scanner.nextLine();
-		Json2 json = new Json2(id,password);
+		Json json = new Json(id,password,0,1); //Missing clan, location and creator
 		json.write();
-		System.out.println(this.id);
-		System.out.println(this.password);
+//		System.out.println(this.id);
+//		System.out.println(this.password);
 
 //		if (clan.hasCreator()) {
 //			return;
