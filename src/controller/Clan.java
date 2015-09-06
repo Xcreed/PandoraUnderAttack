@@ -2,6 +2,9 @@ package controller;
 
 import java.util.List;
 
+import factory.Relic;
+import factory.Resources;
+
 import model.DoubleLinkedList;
 
 /**Clans will fight each others for relics, each clan

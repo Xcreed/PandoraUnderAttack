@@ -2,6 +2,10 @@ package controller;
 
 import java.util.Scanner;
 
+import factory.Iron;
+import factory.Powder;
+import factory.Resources;
+import factory.Wood;
 import model.IPAddress;
 import model.Json;
 /**
@@ -12,7 +16,9 @@ import model.Json;
  */
 public class Client {
 	
-	private Resources resources = new Resources();
+	private Resources iron = new Iron();
+	private Resources wood = new Wood();
+	private Resources powder = new Powder();
 	private String password;
 	private String id;
 	private IPAddress ip;
