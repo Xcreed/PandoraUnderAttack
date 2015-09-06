@@ -8,7 +8,7 @@ public class Relic {
 	/**
 	 * Empty constructor
 	 */
-	private Relic(){
+	public Relic(){
 	}
 	
 	
@@ -20,6 +20,8 @@ public class Relic {
 		
 		if(newRelic == null){
 			newRelic = new Relic();
+		} else {
+			return newRelic;
 		}
 		
 		return newRelic;

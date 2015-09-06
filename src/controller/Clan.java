@@ -24,16 +24,16 @@ public class Clan implements Observer{
 	 * Clan's most valuable object 
 	 */
 	private Relic relic;
-	/**
-	 * Each clan will have more than 1 client
-	 */
-	//private List clients;
+	
 	//private Image emblem;
 	/**
 	 * The clans will have resources
 	 */
 	private Resources resources;
 	@SuppressWarnings("rawtypes")
+	/**
+	 * Each clan will have more than 1 client
+	 */
 	private DoubleLinkedList clients = new DoubleLinkedList();//List of clients the clan will have
 	
 	public Clan() {
