@@ -93,7 +93,27 @@ public class DoubleLinkedList <T extends Comparable<? super T>> {
 			list.append(tmp.getData() + ",");
 			tmp = tmp.getNext();
 		}
+		System.out.println(list);
 		return list;
+	}
+	
+	public DoubleNode getItem(int i) {
+		
+		if (head == tail) {
+			return head;
+		}
+		
+		else  {
+		
+			DoubleNode temp = head;
+			
+			for (int j = 0; j != i; j++) {
+				
+				temp = head.getNext();
+			}
+			return temp;
+		}
+			
 	}
 	
 	/**

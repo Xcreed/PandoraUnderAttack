@@ -1,5 +1,9 @@
 package controller;
 
+import java.util.List;
+
+import model.DoubleLinkedList;
+
 /**Clans will fight each others for relics, each clan
  * will have different clients, resources, guns and defenses
  * 
@@ -8,7 +12,7 @@ package controller;
  */
 public class Clan implements Observer{
 	
-	
+	public String id;
 	/**
 	 * Each clan will have a creator
 	 */
@@ -26,10 +30,14 @@ public class Clan implements Observer{
 	 * The clans will have resources
 	 */
 	private Resources resources;
-	private List clients;//List of clients the clan will have
-	
+	@SuppressWarnings("rawtypes")
+	private DoubleLinkedList clients = new DoubleLinkedList();//List of clients the clan will have
 	
 	public Clan() {
+		
+	}
+	public Clan(String id) {
+		this.id = id;
 		
 	}
 	
@@ -49,7 +57,8 @@ public class Clan implements Observer{
 	 * Returns the list of clients inside the clan
 	 * @return other classes will have access to the list
 	 */
-	public List getClients() {
+	@SuppressWarnings("rawtypes")
+	public DoubleLinkedList getClients() {
 		return clients;
 	}
 	
@@ -60,6 +69,19 @@ public class Clan implements Observer{
 		else {
 			return false;
 		}
+	}
+	
+	public String getClient(int i) {
+		String tmp = (String) clients.getItem(i).getData();
+		return tmp;
+	}
+	
+	//Working separately from the client
+	@SuppressWarnings("unchecked")
+	public void receiveMember(String id) {
+		clients.insertAtEnd(id);
+		clients.print();
+		//System.out.println("New client" + id);
 	}
 
 }

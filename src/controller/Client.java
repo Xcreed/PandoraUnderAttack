@@ -1,6 +1,6 @@
 package controller;
 
-import java.util.ArrayList;
+import java.util.Scanner;
 
 import model.IPAddress;
 import model.Json;
@@ -16,16 +16,19 @@ public class Client {
 	private String password;
 	private String id;
 	private IPAddress ip;
+	private String clanName;
 	private Server server;//Not sure
 	private long rank;//Not defined
 	private long importance;//Not defined exactly
-	//private ChatRoom chatRoom;//Not sure
+	private ChatRoom chatRoom;//Not sure
+	private Clan clan;
 	//private List clans = new ArrayList<Clan>();
-	//private GPS location;
+	private String location;
 	private boolean enableForBattle = true;
 	private Json json = new Json();
 	
 	/**
+	 * Useful to create clients by terminal
 	 * Works for a new player to be created
 	 */
 	public Client() {
@@ -50,14 +53,15 @@ public class Client {
 	 * @param location
 	 */
 	public Client(String id, String pw, long rank, long importance, String location,
-			String clan) {
+			Clan clan) {
 		this.id = id;
 		this.password = pw;
 		this.rank = rank;
 		this.location = location;
 		this.importance = importance;
-		this.clan = clan;
-		checkClan(clan);
+		this.clanName = clan.id;
+		this.clan = new Clan(clanName);
+		joinClan();
 	}
 	
 	/**
@@ -66,12 +70,6 @@ public class Client {
 	 * @param clan
 	 */
 	private void checkClan(String clan) {
-		if (Clan.clients.search(id)) {
-			//Is inside the clan, able to play
-		} else {
-			System.out.println("You are not in this clan");
-			joinClan();
-		}
 		
 	}
 	
@@ -79,9 +77,10 @@ public class Client {
 	 * Adds client to the list of clients of the clan
 	 * <<Adds id or full client instance?>>
 	 */
-	private void joinClan() {
-		Clan.clients.add(this.id);
-		
+	@SuppressWarnings("unchecked")
+	private void joinClan() { 
+		//clan.receiveMember(this.id); //Adds the instance of the user to the list clients registered
+		//Not adding to the clan automatically
 	}
 
 	//Can be boolean
@@ -121,5 +120,10 @@ public class Client {
 //			Creator creator = new Creator();
 //		}
 		
+	}
+
+	public String getID() {
+		// TODO Auto-generated method stub
+		return id;
 	}
 }
