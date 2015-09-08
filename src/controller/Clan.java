@@ -1,6 +1,5 @@
 package controller;
 
-import java.util.List;
 import factory.*;
 import model.DoubleLinkedList;
 
