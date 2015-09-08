@@ -23,6 +23,16 @@ public class Main {
 		
 		System.out.println(clan.getClient(2));
 		
+		
+		clan.addWood();
+		clan.addIron();
+		System.out.println("--------------------------------");
+		clan.showResources();
+		System.out.println("--------------------------------");
+		clan.buyPistol();
+		System.out.println("--------------------------------");
+		clan.showResources();
+		
 				
 	}
 }

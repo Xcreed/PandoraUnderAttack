@@ -1,4 +1,5 @@
 package factory;
+
 /**
  * Concrete class of the iron resource. Set attributes
  * to the object iron that will be related to each client

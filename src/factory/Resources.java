@@ -15,7 +15,7 @@ import java.util.Random;
 public abstract class Resources {
 	
 	private String name;
-	private double amount;
+	private int amount;
 	
 	/**
 	 *Returns the name of the resource.
@@ -40,7 +40,7 @@ public abstract class Resources {
 	 * 
 	 * @return amount
 	 */
-	public double getAmount() {
+	public int getAmount() {
 		return amount;
 	}
 	
@@ -49,7 +49,7 @@ public abstract class Resources {
 	 * 
 	 * @param amount
 	 */
-	public void setAmount(double amount) {
+	public void setAmount(int amount) {
 		this.amount = amount;
 	}
 	
@@ -69,15 +69,23 @@ public abstract class Resources {
 	}
 	
 	/**
-	 * Set a susbraction for the amount and set a new value for the 
+	 * Set an adding number for the amount and set a new value for the 
 	 * amount. 
-	 * 
 	 * 
 	 * @param buying
 	 */
-	public void amountSubstraction(double buying){
-		this.amount = amount - buying;
-		
+	public void amountAdding(int add){
+		this.amount = amount + add;	
+	}
+
+	/**
+	 * Set a subtraction for the amount and set a new value for the 
+	 * amount. 
+	 * 
+	 * @param buying
+	 */
+	public void amountSubtraction(int sub){
+		this.amount = amount - sub;	
 	}
 
 }

@@ -17,21 +17,28 @@ import model.Json;
  */
 public class Client {
 	
-	private Resources iron = new Iron();
-	private Resources wood = new Wood();
-	private Resources powder = new Powder();
+	//private Resources iron = new Iron();
+	//private Resources wood = new Wood();
+	//private Resources powder = new Powder();
+	
 	private String password;
 	private String id;
 	private IPAddress ip;
 	private String clanName;
 	private Server server;//Not sure
-	private long rank;//Not defined
+	
+	//************POR DEFINIR*****************//
+	private long rank; //Not defined
 	private long importance;//Not defined exactly
 	private ChatRoom chatRoom;//Not sure
+	
 	private Clan clan;
 	//private List clans = new ArrayList<Clan>();
+	
 	private String location;
+	
 	private boolean enableForBattle = true;
+	
 	private Json json = new Json();
 	
 	/**
@@ -76,8 +83,7 @@ public class Client {
 	 * If not, will ask to join
 	 * @param clan
 	 */
-	private void checkClan(String clan) {
-		
+	private void checkClan(String clan) {	
 	}
 	
 	/**
