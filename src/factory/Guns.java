@@ -10,7 +10,8 @@ package factory;
 public abstract class Guns{
 
 	private String name; 
-	private double damage;
+	private int damage;
+	//cost
 
 	/**
 	 * Returns the name of the gun.
@@ -38,7 +39,7 @@ public abstract class Guns{
 	/**
 	 * Set the new damage value.
 	 */
-	public void setDamage(double newDamage) {
+	public void setDamage(int newDamage) {
 		damage = newDamage;
 	}
 

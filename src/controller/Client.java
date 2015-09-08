@@ -9,9 +9,10 @@ import factory.Wood;
 import model.IPAddress;
 import model.Json;
 /**
- * A client will be used from a smartphone to control
- * all the functions to contribute to a clan
- * @author Xcreed
+ * A client will use a smartphone  to control
+ * all the functions to contribute to a clan.
+ * 
+ * @author Juan Pablo
  *
  */
 public class Client {
