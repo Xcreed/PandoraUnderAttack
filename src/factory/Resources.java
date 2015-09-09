@@ -64,8 +64,8 @@ public abstract class Resources {
 		int max = 10;
 		
 		Random rand = new Random();
-		int amount = rand.nextInt((max - min ) + 1 ) + min;
-		this.amount = amount;
+		int randAmount = rand.nextInt((max - min ) + 1 ) + min;
+		this.amount = amount + randAmount;
 	}
 	
 	/**
