@@ -83,7 +83,7 @@ public class DoubleLinkedList <T> {
 	 * 
 	 * @return list 
 	 */
-	public StringBuilder print(){	
+	public void print(){	
 		
 		StringBuilder list = new StringBuilder();
 		DoubleNode tmp = head;
@@ -94,7 +94,7 @@ public class DoubleLinkedList <T> {
 			tmp = tmp.getNext();
 		}
 		System.out.println(list);
-		return list;
+		//return list;
 	}
 	
 	public DoubleNode getItem(int i) {

@@ -74,8 +74,12 @@ public class Client {
 		this.location = location;
 		this.importance = importance;
 		this.clanName = clan.id;
-		this.clan = new Clan(clanName);
+		this.clan = clan;
 		joinClan();
+	}
+	
+	public String getClan() {
+		return clan.id;
 	}
 	
 	/**
@@ -92,7 +96,7 @@ public class Client {
 	 */
 	@SuppressWarnings("unchecked")
 	private void joinClan() { 
-		//clan.receiveMember(this.id); //Adds the instance of the user to the list clients registered
+		clan.receiveMember(this); //Adds the instance of the user to the list clients registered
 		//Not adding to the clan automatically
 	}
 
@@ -110,7 +114,9 @@ public class Client {
 		
 	}
 	
-	
+	/**
+	 * Reads the JSON file and loads it. 
+	 */
 	private void loadStats(){
 		json.read();
 	}

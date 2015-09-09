@@ -3,7 +3,8 @@ package controller;
 import factory.*;
 import model.DoubleLinkedList;
 
-/**Clans will fight each others for relics, each clan
+/**
+ * Clans will fight each others for relics, each clan
  * will have different clients, resources, guns and defenses
  * 
  * @author Juan Pablo
@@ -13,9 +14,9 @@ public class Clan implements Observer{
 	
 	public String id; //the id of the clan;
 	private Creator creator; // each clan will have a creator;
-	public DoubleLinkedList relics = new DoubleLinkedList(); //clan's most valuable object;
+	
 	//private Image emblem; //clan's image
-	public DoubleLinkedList weapons = new DoubleLinkedList();
+	
 	
 	public Wood woodClan = new Wood(); //clan's wood resource (object instantiated);
 	public Iron ironClan = new Iron(); //clan's iron resource (object instantiated);
@@ -26,8 +27,9 @@ public class Clan implements Observer{
 	public Guns sword = null; // new gun ((object instantiated);
 	public Guns cannon = null; // new gun ((object instantiated);
 	
-	private DoubleLinkedList clients = new DoubleLinkedList(); //list of clients the clan will have;
-	
+	public DoubleLinkedList clients = new DoubleLinkedList(); //clan's list of the clients (members);
+	public DoubleLinkedList relics = new DoubleLinkedList(); //clan's most valuable objects(relics);
+	public DoubleLinkedList weapons = new DoubleLinkedList(); //clan's list for the weapons;
 	
 	@SuppressWarnings("rawtypes")
 	/**
@@ -52,7 +54,6 @@ public class Clan implements Observer{
 	 * @param targetClan
 	 */
 	public void attackClan(Clan targetClan) {
-		//pandoraUnderAttack();
 		
 		//Missing the 2+ advantage
 		Clan attackingClan = this;
@@ -60,7 +61,7 @@ public class Clan implements Observer{
 		//Same amount of clients from each clan
 		if (attackingClan.clients.getLength() == targetClan.clients.getLength()) {
 			System.out.println("Same amount");
-		} 
+		}
 		//Attacking clan has less clients which results in losing the fight
 		else if (attackingClan.clients.getLength() < targetClan.clients.getLength()) {
 			System.out.println("Lossing");
@@ -76,19 +77,20 @@ public class Clan implements Observer{
 	/**
 	 * Sets an random amount of wood to the account.
 	 */
-	public void addWood(){
+	public void addWoodRandom(){
 		woodClan.setRandomAmount();
 	}
 	
 	/**
 	 * Sets an random amount of iron to the account.
 	 */
-	public void addIron(){
+	public void addIronRandom(){
 		ironClan.setRandomAmount();
 	}
 	
 	/**
-	 * Adds an amount of wood
+	 * Adds an amount of wood.
+	 * 
 	 * @param amount
 	 */
 	public void addWood(int amount){
@@ -96,7 +98,8 @@ public class Clan implements Observer{
 	}
 	
 	/**
-	 * Adds an amount of iron
+	 * Adds an amount of iron.
+	 * 
 	 * @param amount
 	 */
 	public void addIron(int amount){
@@ -210,8 +213,8 @@ public class Clan implements Observer{
 	
 	//Working separately from the client
 	@SuppressWarnings("unchecked")
-	public void receiveMember(String id) {
-		clients.insertAtEnd(id);
+	public void receiveMember(Client client) {
+		clients.insertAtEnd(client);
 		clients.print();
 		//System.out.println("New client" + id);
 	}
@@ -248,11 +251,9 @@ public class Clan implements Observer{
 		newOwner.addRelic();
 	}
 	
-	
 	public void receiveMsg(String msg) {
 	}
 	
 	public void update() {
 	}
-
 }
