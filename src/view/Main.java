@@ -10,28 +10,40 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		Clan clan = new Clan("Hey");
-		Client A = new Client("A","..",19,20,"0,0",clan);
-		Client S = new Client("S","..",19,20,"0,0",clan);
-		Client D = new Client("D","..",19,20,"0,0",clan);
-		Client F = new Client("F","..",19,20,"0,0",clan);
+		Clan clanA = new Clan("ClanA");
+		Clan clanB = new Clan("ClanB");
+		Client A = new Client("A","..",19,20,"0,0",clanA);
+		Client S = new Client("S","..",19,20,"0,0",clanA);
+		Client D = new Client("D","..",19,20,"0,0",clanA);
+		Client F = new Client("F","..",19,20,"0,0",clanB);
 		
-		clan.receiveMember(A.getID());
-		clan.receiveMember(D.getID());
-		clan.receiveMember(S.getID());
-		clan.receiveMember(F.getID());
+		clanA.receiveMember(A.getID());
+		clanB.receiveMember(D.getID());
+		clanB.receiveMember(S.getID());
+		clanB.receiveMember(F.getID());
 		
-		System.out.println(clan.getClient(2));
+		clanA.addRelic();
+		clanB.addRelic();
 		
 		
-		clan.addWood();
-		clan.addIron();
+		//System.out.println(clan.getClient(2));
+		
+		
+		clanA.addWood(10);
+		clanA.addIron(10);
+		clanA.addPowder(10);
 		System.out.println("--------------------------------");
-		clan.showResources();
+		clanA.showResources();
 		System.out.println("--------------------------------");
-		clan.buyPistol();
+		clanA.buyPistol();
+		clanA.buyCannon();
+		System.out.println("weapons: " + clanA.weapons.print());
 		System.out.println("--------------------------------");
-		clan.showResources();
+		clanA.showResources();
+		System.out.println("ClanA relics length:" + clanA.relics.getLength());
+		clanB.attackClan(clanA);
+		System.out.println("ClanA relics length:" + clanA.relics.getLength());
+		System.out.println("ClanB relics length:" + clanB.relics.getLength());
 		
 				
 	}

@@ -13,8 +13,9 @@ public class Clan implements Observer{
 	
 	public String id; //the id of the clan;
 	private Creator creator; // each clan will have a creator;
-	private Relic relic; //clan's most valuable object;
+	public DoubleLinkedList relics = new DoubleLinkedList(); //clan's most valuable object;
 	//private Image emblem; //clan's image
+	public DoubleLinkedList weapons = new DoubleLinkedList();
 	
 	public Wood woodClan = new Wood(); //clan's wood resource (object instantiated);
 	public Iron ironClan = new Iron(); //clan's iron resource (object instantiated);
@@ -52,6 +53,24 @@ public class Clan implements Observer{
 	 */
 	public void attackClan(Clan targetClan) {
 		//pandoraUnderAttack();
+		
+		//Missing the 2+ advantage
+		Clan attackingClan = this;
+		
+		//Same amount of clients from each clan
+		if (attackingClan.clients.getLength() == targetClan.clients.getLength()) {
+			System.out.println("Same amount");
+		} 
+		//Attacking clan has less clients which results in losing the fight
+		else if (attackingClan.clients.getLength() < targetClan.clients.getLength()) {
+			System.out.println("Lossing");
+			attackingClan.removeRelic(targetClan);
+		} 
+		//Attacking clan has the advantage and wins the relic
+		else {
+			System.out.println("Winning");
+			targetClan.removeRelic(attackingClan);
+		}
 	}
 	
 	/**
@@ -69,6 +88,30 @@ public class Clan implements Observer{
 	}
 	
 	/**
+	 * Adds an amount of wood
+	 * @param amount
+	 */
+	public void addWood(int amount){
+		woodClan.amountAdding(amount);
+	}
+	
+	/**
+	 * Adds an amount of iron
+	 * @param amount
+	 */
+	public void addIron(int amount){
+		ironClan.amountAdding(amount);
+	}
+	
+	/**
+	 * Adds an amount of powder
+	 * @param amount
+	 */
+	public void addPowder(int amount){
+		powderClan.amountAdding(amount);
+	}
+	
+	/**
 	 * Sets an random amount of powder to the account.
 	 */
 	public void addPowder(){
@@ -83,8 +126,9 @@ public class Clan implements Observer{
 		int totalIron = ironClan.getAmount();
 		int totalPowder = powderClan.getAmount();
 		
-		System.out.println(totalWood);
-		System.out.println(totalIron);
+		System.out.println("Wood: " + totalWood);
+		System.out.println("Iron: " + totalIron);
+		System.out.println("Powder: " + totalPowder);
 	}
 	/**
 	 * Buys and creates a sword.
@@ -95,6 +139,7 @@ public class Clan implements Observer{
 			ironClan.amountSubtraction(2);
 			sword = gunFactory.makeGun("S");
 			System.out.println("excalibur");
+			weapons.insertAtEnd(sword);
 		}
 	}
 	
@@ -107,6 +152,7 @@ public class Clan implements Observer{
 			ironClan.amountSubtraction(3);
 			pistol = gunFactory.makeGun("P");
 			System.out.println("45. magnum");
+			weapons.insertAtEnd(pistol);
 		}
 	}
 	
@@ -120,6 +166,7 @@ public class Clan implements Observer{
 			woodClan.amountSubtraction(2);
 			cannon = gunFactory.makeGun("C");
 			System.out.println("Great Bomb");
+			weapons.insertAtEnd(cannon);
 		}
 	}
 	
@@ -139,7 +186,7 @@ public class Clan implements Observer{
 	
 	/**
 	 * Returns as a string a client inside the list 
-	 * of the memebers of a clan. 
+	 * of the members of a clan. 
 	 * 
 	 * @param i
 	 * @return client
@@ -167,6 +214,38 @@ public class Clan implements Observer{
 		clients.insertAtEnd(id);
 		clients.print();
 		//System.out.println("New client" + id);
+	}
+	
+	/**
+	 * Adds a new relic to a clan
+	 * Missing adding location
+	 */
+	@SuppressWarnings({ "static-access", "unchecked" })
+	public void addRelic() {
+		
+		Relic newRelic = new Relic();
+		newRelic.makeRelic();
+		relics.insertAtEnd(newRelic);
+	}
+	
+	/**
+	 * Removes relic from the actual owner 
+	 * Checks if actual owner doesn't have more relics
+	 * If it doesn't, deletes clan
+	 * Creates a new relic in the clan who won the fight
+	 * @param newOwner
+	 */
+	public void removeRelic(Clan newOwner) {
+		
+		if (relics.getLength() == 0) {
+			try {
+				this.finalize();
+			} catch (Throwable e) {
+				e.printStackTrace();
+			}
+		}
+		relics.removeAtEnd();
+		newOwner.addRelic();
 	}
 	
 	

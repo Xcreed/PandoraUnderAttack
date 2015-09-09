@@ -8,7 +8,7 @@ package model;
  * @param <T>: generic object
  */
 
-public class DoubleNode<T extends Comparable<? super T>> {
+public class DoubleNode<T> {
 	
 	
 	private DoubleNode<T> next; // basic node for next

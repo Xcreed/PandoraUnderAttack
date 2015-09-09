@@ -7,7 +7,7 @@ package model;
  * @param <T>
  */
 
-public class DoubleLinkedList <T extends Comparable<? super T>> {
+public class DoubleLinkedList <T> {
 	
 	private DoubleNode<T> head = null; //null node for the head of the list
 	private DoubleNode<T> tail = null; //null node for the tail of the list
@@ -121,23 +121,23 @@ public class DoubleLinkedList <T extends Comparable<? super T>> {
 	 * @param pData
 	 * @return pData
 	 */
-	public boolean search(T pData){
+	public Object search(T pData){
 		DoubleNode<T> data = new DoubleNode<T>(pData);
 		boolean bool = false;
 	
 		if(isEmpty()){
-			return bool;
+			return null;
 		}else{
 			DoubleNode tmp = head; 
 			while(tmp != null){
 				if(tmp.getData() == pData){
-					bool = true;
-					break;
+					return tmp;
 				}else{
 					tmp = tmp.getNext(); 
 				} 
 			}
-			return bool;
+			System.out.println("Item not found");
+			return null;
 		}
 	}
 	
