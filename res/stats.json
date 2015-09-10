@@ -1,1 +1,44 @@
-{"clans":[{"clients":[{"creator":false,"saved":false,"importance":300,"pw":"","clan":"F2","rank":31,"location":"","id":"JP"},{"creator":false,"saved":false,"importance":750,"pw":"","clan":"F1","rank":80,"location":"","id":"Xcreed"},{"creator":false,"importance":0,"pw":null,"clan":"Xcreedkiller","rank":0,"location":"Cartago, CR","id":null},{"creator":false,"importance":0,"pw":null,"clan":"Xcreedkiller","rank":0,"location":"Cartago, CR","id":null},{"creator":false,"importance":0,"pw":null,"clan":"Randy","rank":0,"location":"Cartago, CR","id":"Randy"}]},{"relics":[{"clan":"F2","location":"40, 322"},{"clan":"F2","location":"300, 21"},{"clan":"F2","location":"1, 0"}]}]}
+{ "clans" : [
+	{"clan name" : "A",
+		"stats" : [
+		{"clients": [
+			{"id":"JP", "pw":"", "rank":31, "importance": 300, "location":"", "creator": false, "clan":"A"},
+			{"id":"Xcreed", "pw":"", "rank":80, "importance": 750, "location":"", "creator": false, "clan":"A"}
+		]},	
+		{"relics" : [
+			{"location":"40, 322"},
+			{"location":"300, 21"},
+			{"location":"1, 0"}
+		]},
+		{"weapons" : 
+			{"weapon":"p", "weapon":"s"}
+		},
+		{"resources" : [
+			{"iron": 3000, "wood": 2000, "powder": 1500}
+		]},
+		{"defenses" :  
+			{"defense":"shield","defense":"shield"}
+		}
+	]},
+	{"clan name" : "B",
+		"stats" : [
+		{"clients": [
+			{"id":"JP", "pw":"", "rank":31, "importance": 300, "location":"", "creator": false, "clan":"B"},
+			{"id":"Xcreed", "pw":"", "rank":80, "importance": 750, "location":"", "creator": false, "clan":"B"}
+		]},	
+		{"relics" : [
+			{"location":"40, 322"},
+			{"location":"300, 21"},
+			{"location":"1, 0"}
+		]},
+		{"weapons" : 
+			{"weapon":"s","defense":"shield", "weapon":"p"}
+		},
+		{"resources" : [
+			{"iron": 3000, "wood": 2000, "powder": 1500}
+		]},
+		{"defenses" : 
+			{"defense":"shield","defense":"shield","defense":"shield"}
+		}
+	]}
+]}
