@@ -42,16 +42,4 @@ public abstract class Guns{
 	public void setDamage(int newDamage) {
 		damage = newDamage;
 	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	public void PandoraUnderAttack() {
-	}
-	
-	//**************prueba*******************//
-	public void print(){
-		System.out.println("nombre " + getName() + "dano "+ getDamage());
-	}
 }

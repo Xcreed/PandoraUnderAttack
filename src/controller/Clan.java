@@ -15,6 +15,9 @@ public class Clan implements Observer{
 	public String id; //the id of the clan;
 	private Creator creator; // each clan will have a creator;
 	
+	private int damageClan;
+	private int resistanceClan;
+	
 	//private Image emblem; //clan's image
 	
 	
@@ -48,26 +51,64 @@ public class Clan implements Observer{
 	}
 	
 	/**
-	 * Action 1.
+	 * Returns the value of the damageClan attribute.
+	 * 
+	 * @return damageClan
+	 */
+	public int getDamageClan(){
+		return damageClan;	
+	}
+	
+	/**
+	 * Return the value of the resistanceClan attribute.
+	 * 
+	 * @return resistanceClan
+	 */
+	public int getResistanceClan(){
+		return resistanceClan;
+	}
+	
+	/**
+	 * Compare the damage level of the attacking clan against the resistance level 
+	 * of the target clan, if bigger attack the clan, if equal a time is given to wait 
+	 * for members, else there's no attack.
+	 * 
+	 * @param targetClan
+	 */
+	public void compareDmgRst(Clan targetClan){
+		
+		Clan attackingClan = this;
+		
+		if(attackingClan.getDamageClan() > targetClan.getResistanceClan()){
+			attackClan(attackingClan,targetClan);
+		}else if (attackingClan.getDamageClan() == targetClan.getResistanceClan()){
+			//código del tiempo, poner una variable (segundos) que se vaya restando
+			// hasta 0, si llega a cero y no consigue miemrbos se cancela el ataque
+			//si se añaden miembros, atacar al clan enemigo.
+		}else if (attackingClan.getDamageClan() < targetClan.getResistanceClan()){
+			System.out.println("No attack.");
+		}
+		
+	}
+	
+	/**
+	 * Action 1: Pandora Under Attack
 	 * Attack an enemy clan.
 	 * 
 	 * @param targetClan
 	 */
-	public void attackClan(Clan targetClan) {
+	public void attackClan(Clan attackingClan, Clan targetClan) {
 		
-		//Missing the 2+ advantage
-		Clan attackingClan = this;
-		
-		//Same amount of clients from each clan
+		//Same amount of clients from each clan.
 		if (attackingClan.clients.getLength() == targetClan.clients.getLength()) {
 			System.out.println("Same amount");
 		}
-		//Attacking clan has less clients which results in losing the fight
+		//Attacking clan has less clients which results in losing the fight.
 		else if (attackingClan.clients.getLength() < targetClan.clients.getLength()) {
 			System.out.println("Lossing");
 			attackingClan.removeRelic(targetClan);
 		} 
-		//Attacking clan has the advantage and wins the relic
+		//Attacking clan has the advantage and wins the relic.
 		else {
 			System.out.println("Winning");
 			targetClan.removeRelic(attackingClan);
@@ -143,6 +184,7 @@ public class Clan implements Observer{
 			sword = gunFactory.makeGun("S");
 			System.out.println("excalibur");
 			weapons.insertAtEnd(sword);
+			damageClan += sword.getDamage();
 		}
 	}
 	
@@ -156,6 +198,7 @@ public class Clan implements Observer{
 			pistol = gunFactory.makeGun("P");
 			System.out.println("45. magnum");
 			weapons.insertAtEnd(pistol);
+			damageClan += pistol.getDamage();
 		}
 	}
 	
@@ -170,6 +213,7 @@ public class Clan implements Observer{
 			cannon = gunFactory.makeGun("C");
 			System.out.println("Great Bomb");
 			weapons.insertAtEnd(cannon);
+			damageClan += cannon.getDamage();
 		}
 	}
 	
@@ -181,8 +225,7 @@ public class Clan implements Observer{
 	public boolean hasCreator() {
 		if (creator != null) {
 			return true;
-		}
-		else {
+		}else {
 			return false;
 		}
 	}
@@ -231,11 +274,10 @@ public class Clan implements Observer{
 		relics.insertAtEnd(newRelic);
 	}
 	
-	/**
-	 * Removes relic from the actual owner 
-	 * Checks if actual owner doesn't have more relics
-	 * If it doesn't, deletes clan
-	 * Creates a new relic in the clan who won the fight
+	/** 
+	 * Removes a relic from on clan, adds creates a new relic in
+	 * the clan who won the fight.
+	 * 
 	 * @param newOwner
 	 */
 	public void removeRelic(Clan newOwner) {

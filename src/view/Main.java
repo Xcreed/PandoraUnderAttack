@@ -37,7 +37,6 @@ public class Main {
 		System.out.println("--------------------------------");
 		clanA.buyPistol();
 		clanA.buyCannon();
-		System.out.println("weapons: " + clanA.weapons.print());
 		System.out.println("--------------------------------");
 		clanA.showResources();
 		
