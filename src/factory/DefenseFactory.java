@@ -18,15 +18,18 @@ public class DefenseFactory {
 	 * @param defenseType
 	 * @return defense
 	 */
-	public SpartanShields makeDefense(String defenseType){
+	public Defense makeDefense(String defenseType){
 		
 		newDefense = null;
 		
 		if(defenseType.equals("SS")){
 			return new SpartanShields();
+		}else if (defenseType.equals("KV")){
+			return new KevlarShields();
+		}else if(defenseType.equals("LS")){
+			return new LaserShields();
 		}else{
 			return null;
 		}
-		
 	}
 }

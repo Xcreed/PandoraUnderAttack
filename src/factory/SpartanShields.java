@@ -5,6 +5,6 @@ public class SpartanShields extends Defense {
 	public SpartanShields(){
 		
 		setName("SpartanShields");
-		setResistance(2);
+		setResistance(3);
 	}
 }

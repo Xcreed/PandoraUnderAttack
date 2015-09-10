@@ -20,8 +20,9 @@ import controller.Client;
 
 /**
  * Read and writes a json file
- * this file will keep the stats from relics, clans and clients
- * @author Xcreed
+ * this file will keep the stats from relics, clans and clients.
+ * 
+ * @author Juan Pablo
  *
  */
 public class Json {
@@ -37,7 +38,7 @@ public class Json {
 	private Clan clan;
 	private String relicLocation;
 	private String relicClan;
-	
+	private DoubleLinkedList clientsList = new DoubleLinkedList();
 	private JSONParser parser = new JSONParser();
 	
 	/**
@@ -59,7 +60,6 @@ public class Json {
 	 * To instanciate the class with no parameters
 	 */
 	public Json() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -194,17 +194,19 @@ public class Json {
 		   String member = (String) client.get("clan");
 		   System.out.println("Is member from the clan: " + member);
 		   
-		   //Creates a new client when the file is read
+		   //Creates a new client when the file is read.
 		   //Client gameMember = new Client(id, pw, rank, importance, location, member);
+		   
+		   //client.
 	   }
 	   
 	   for (int i = 0; i < relicsArray.size(); i++) {
 		   
 		   JSONObject relic = (JSONObject) relicsArray.get(i);
-		   //Location of the relic
+		   //Location of the relic.
 		   relicLocation = (String) relic.get("location");
 		   System.out.println("Relic is located at: " + relicLocation);
-		   //Clan that has the relic
+		   //Clan that has the relic.
 		   relicClan = (String) relic.get("clan");
 		   System.out.println("Relic belongs to the clan: " + relicClan);
 		   
