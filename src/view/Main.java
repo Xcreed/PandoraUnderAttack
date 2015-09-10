@@ -32,6 +32,9 @@ public class Main {
 		clanA.addWood(10);
 		clanA.addIron(10);
 		clanA.addPowder(10);
+		clanB.addWood(10);
+		clanB.addIron(10);
+		clanB.addPowder(10);
 		System.out.println("--------------------------------");
 		clanA.showResources();
 		System.out.println("--------------------------------");
@@ -39,16 +42,17 @@ public class Main {
 		clanA.buyCannon();
 		System.out.println("--------------------------------");
 		clanA.showResources();
+		clanB.buySpartanShields();
 		
 		System.out.println("ClanA clients length:" + clanA.clients.getLength());
 		System.out.println("ClanB clients length:" + clanB.clients.getLength());
 
-		/*
+		
 		System.out.println("ClanA relics length:" + clanA.relics.getLength());
-		clanB.attackClan(clanA);
+		clanB.compareDamageResistance(clanA);
 		System.out.println("ClanA relics length:" + clanA.relics.getLength());
 		System.out.println("ClanB relics length:" + clanB.relics.getLength());
-		*/
+		
 				
 	}
 }

@@ -7,7 +7,7 @@ import model.DoubleLinkedList;
  * Clans will fight each others for relics, each clan
  * will have different clients, resources, guns and defenses
  * 
- * @author Juan Pablo
+ * @authors Juan Pablo and Randy
  *
  */
 public class Clan implements Observer{
@@ -30,9 +30,13 @@ public class Clan implements Observer{
 	public Guns sword = null; // new gun ((object instantiated);
 	public Guns cannon = null; // new gun ((object instantiated);
 	
+	public DefenseFactory defenseFactory = new DefenseFactory(); //factory for making defenses((object instantiated);
+	public SpartanShields spartanshields = null; //new defense ((object instantiated);
+	
 	public DoubleLinkedList clients = new DoubleLinkedList(); //clan's list of the clients (members);
 	public DoubleLinkedList relics = new DoubleLinkedList(); //clan's most valuable objects(relics);
 	public DoubleLinkedList weapons = new DoubleLinkedList(); //clan's list for the weapons;
+	public DoubleLinkedList defenses = new DoubleLinkedList(); //Clan's list for defenses;
 	
 	@SuppressWarnings("rawtypes")
 	/**
@@ -75,16 +79,18 @@ public class Clan implements Observer{
 	 * 
 	 * @param targetClan
 	 */
-	public void compareDmgRst(Clan targetClan){
+	public void compareDamageResistance(Clan targetClan){
 		
 		Clan attackingClan = this;
 		
 		if(attackingClan.getDamageClan() > targetClan.getResistanceClan()){
 			attackClan(attackingClan,targetClan);
 		}else if (attackingClan.getDamageClan() == targetClan.getResistanceClan()){
+			
 			//código del tiempo, poner una variable (segundos) que se vaya restando
 			// hasta 0, si llega a cero y no consigue miemrbos se cancela el ataque
 			//si se añaden miembros, atacar al clan enemigo.
+			
 		}else if (attackingClan.getDamageClan() < targetClan.getResistanceClan()){
 			System.out.println("No attack.");
 		}
@@ -216,6 +222,21 @@ public class Clan implements Observer{
 			damageClan += cannon.getDamage();
 		}
 	}
+	
+	/**
+	 * Buys and creates a spartan shield.
+	 */
+	public void buySpartanShields(){
+		if (clients.getLength() >= 1 & ironClan.getAmount() >= 2 & woodClan.getAmount() >= 1 ){
+			ironClan.amountSubtraction(2);
+			woodClan.amountSubtraction(1);
+			spartanshields = defenseFactory.makeDefense("SS");
+			System.out.println("DEFEND SPARTA");
+			defenses.insertAtEnd(spartanshields);
+			resistanceClan +=spartanshields.getResistance();
+		}
+	}
+	
 	
 	/**
 	 * Returns a boolean whether the clan has a creator or not. 
