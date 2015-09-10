@@ -1,9 +1,5 @@
 package controller;
 
-import java.awt.Image;
-import java.util.ArrayList;
-import java.util.List;
-
 public class Server implements Observer{
 
 	//private Image Map = new Image();

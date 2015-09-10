@@ -1,44 +1,58 @@
 package view;
 
-import java.util.Scanner;
-
+import controller.Clan;
 import controller.Client;
-import model.Json;
 
 public class Main {
 	
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
+	
 	public static void main(String[] args) {
-	
-		Scanner sc = new Scanner(System.in);
+		
+		Clan clanA = new Clan("ClanA");
+		Clan clanB = new Clan("ClanB");
+		Client A = new Client("A","..",19,20,"0,0",clanA);
+		Client S = new Client("S","..",19,20,"0,0",clanA);
+		Client D = new Client("D","..",19,20,"0,0",clanA);
+		Client F = new Client("F","..",19,20,"0,0",clanB);
+		
+//		clanA.receiveMember(A.getID());
+//		clanB.receiveMember(D.getID());
+//		clanB.receiveMember(S.getID());
+//		clanB.receiveMember(F.getID());
+		
+		clanA.addRelic();
+		clanB.addRelic();
 		
 		
-		SimpleLinkedList <Integer> list = new SimpleLinkedList();
+		//System.out.println(clan.getClient(2));
 		
-		list.insertBeginning(1);
-		list.insertBeginning(2);
-		list.insertBeginning(3);
 		
-		list.insertLast(99);
-		list.insertLast(102);
-		list.insertLast(789);
+		clanA.addWood(10);
+		clanA.addIron(10);
+		clanA.addPowder(10);
+		clanB.addWood(10);
+		clanB.addIron(10);
+		clanB.addPowder(10);
+		System.out.println("--------------------------------");
+		clanA.showResources();
+		System.out.println("--------------------------------");
+		clanA.buyPistol();
+		clanA.buyCannon();
+		System.out.println("--------------------------------");
+		clanA.showResources();
+		clanB.buySpartanShields();
 		
-	
+		System.out.println("ClanA clients length:" + clanA.clients.getLength());
+		System.out.println("ClanB clients length:" + clanB.clients.getLength());
+
+		
+		System.out.println("ClanA relics length:" + clanA.relics.getLength());
+		clanB.compareDamageResistance(clanA);
+		System.out.println("ClanA relics length:" + clanA.relics.getLength());
+		System.out.println("ClanB relics length:" + clanB.relics.getLength());
 		
 				
-		System.out.println("El largo de la lista es: " + list.getLength());
-		System.out.println("--------------------------------");
-		System.out.println("Los elementos dentro de la lista son: ");
-		System.out.println(list.print());
-		System.out.println("--------------------------------");
-		System.out.println("El elemento esta o no en la lista: "+ list.search(102));
-		System.out.println("--------------------------------");
-		System.out.println("Borrando elementos");
-		System.out.println("--------------------------------");
-		list.delete(102);
-		System.out.println(list.print());
-		
-		
 	}
 }

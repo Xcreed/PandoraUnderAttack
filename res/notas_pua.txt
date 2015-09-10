@@ -1,0 +1,29 @@
+clase - cliente =>metodo acciones
+	-> atacar
+		# metodo captura clase (add a la lista de reliquias)
+
+	-> defender
+
+	-> crear defensa
+		# se invoca al metodo factory de armas y se crea una arma deseada
+		# cada defensa tiene un costo determinada + un numero obligartorio de clientes *ver nota*
+
+		#$costo espartanos: 2 metal + 2 madera + 1 miembro
+		#$costo guardiasuiza: 3 metal + 3 madera + 1 miembro
+		#$costo terminators: 4 powder + 4 metal + 1 miembro
+
+	-> crear arma
+		#cada arma tiene un costo determinado + un numero obligatorio de clientes *ver nota*
+		# para crear una arma, se le resta a la cuenta total del clan y se cuenta la cantidad de miembros del clan
+
+		#$costo sword:  2 metal + 1 wood + 1 miembro ===================> inhabilita un miembros
+		#$costo pistol: 3 metal + 2 powder + 1 miembro =================> inabilita dos miembro
+		#$costo cannon: 3 powder + 3 metal + 2 wood + 1 miembro ========> innabilita tres miembros
+
+	->recolectar recursos
+		# se suma todos los iron recolectados hasta el momento
+		# se suma todos los woods recolectado hasta el momento
+		# se suma todos los powder recolectados hasta el momento
+		 
+ 
+*nota*: por defecto todas las armas y defensas requieren de un miembros para funcionar 
