@@ -45,6 +45,7 @@ public class Json {
 	public int iron;
 	public int wood;
 	public int powder;
+
 	private JSONParser parser = new JSONParser();
 	
 	/**
@@ -294,9 +295,12 @@ public class Json {
 		   //Location of the relic
 		   relicLocation = (String) relic.get("location");
 		   System.out.println("Relic is located at: " + relicLocation);
+<<<<<<< HEAD
 		   //Clan that has the relic
 		   
 		   
+=======
+>>>>>>> branch 'master' of https://github.com/Xcreed/PandoraUnderAttack.git
 	   }
 	   */
 
