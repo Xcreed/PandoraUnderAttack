@@ -37,8 +37,10 @@ public class Json {
 	private boolean creator;
 	private Clan clan;
 	private String relicLocation;
-	private String relicClan;
+
 	private DoubleLinkedList clientsList = new DoubleLinkedList();
+	private String clanName;
+	private DoubleLinkedList clansList = new DoubleLinkedList();
 	private JSONParser parser = new JSONParser();
 	
 	/**
@@ -72,13 +74,13 @@ public class Json {
 		OutputStream outStream = null;
 		
 		JSONObject clientObj = new JSONObject();
-		clientObj.put("id", "Randy");
+		clientObj.put("id", id);
 		clientObj.put("pw", pw);
 		clientObj.put("rank", rank);
 		clientObj.put("importance", importance);
-		clientObj.put("location", "Cartago, CR");
+		clientObj.put("location", location);
 		clientObj.put("creator", false);
-		clientObj.put("clan", "Randy");
+		clientObj.put("clan", clanName);
 
 		try {
 					
@@ -170,7 +172,8 @@ public class Json {
 	   //List of relics of the clan
 	   JSONObject relics = (JSONObject) clan.get(1);
 	   JSONArray relicsArray = (JSONArray) relics.get("relics");
-
+	   
+	   
 	   //Gets the stats from the clients 
 	   for (int i = 0; i < clientsArray.size(); i++) {
 		   
@@ -206,10 +209,6 @@ public class Json {
 		   //Location of the relic.
 		   relicLocation = (String) relic.get("location");
 		   System.out.println("Relic is located at: " + relicLocation);
-		   //Clan that has the relic.
-		   relicClan = (String) relic.get("clan");
-		   System.out.println("Relic belongs to the clan: " + relicClan);
-		   
 	   }
 
 	   System.out.println("Done reading file");
