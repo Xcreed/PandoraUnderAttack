@@ -177,20 +177,20 @@ public class Json {
 	   for (int i = 0; i < clans.size(); i++) {
 		   
 		   JSONObject clanObj = (JSONObject) clans.get(i);
-		   //System.out.println("ClanObj " + clanObj );
+		   System.out.println("ClanObj " + clanObj );
 		   
 		   //Grabs the name of the Clan
 		   String ClanName = (String) clanObj.get("clan name");
-		   //System.out.println("ClanName " + ClanName);
-		   
+		   System.out.println("ClanName " + ClanName);
+		  
 		   //Gets all the stats of the clan
 		   JSONArray clanStatsArray = (JSONArray) clanObj.get("stats"); 
-		   //System.out.println("ClanStatsArray " + clanStatsArray);
+		   System.out.println("ClanStatsArray " + clanStatsArray);
 
 		   //List of clients of the clan
 		   JSONObject clients = (JSONObject) clanStatsArray.get(0);
 		   JSONArray clientsArray = (JSONArray) clients.get("clients"); 
-		   //System.out.println("ClientsArray " + clientsArray); //Add the code commented below
+		   System.out.println("ClientsArray " + clientsArray); //Add the code commented below
 		   
 		 //Gets the stats from the clients 
 		   for (int j = 0; j < clientsArray.size(); j++) {
@@ -212,8 +212,7 @@ public class Json {
 			   creator = (boolean) client.get("creator");
 			   System.out.println("Creator: " + creator);
 			   //Which clan is the user from
-			   String member = (String) client.get("clan");
-			   System.out.println("Is member from the clan: " + member);
+			   System.out.println("Is member from the clan: " + ClanName);
 			   
 			   //Creates a new client when the file is read
 			   //Client gameMember = new Client(id, pw, rank, importance, location, member);
@@ -234,75 +233,30 @@ public class Json {
 		   }
 		   
 		   JSONObject weapons = (JSONObject) clanStatsArray.get(2);
-		   JSONObject weaponsList = (JSONObject) weapons.get("weapons"); //Only recognizes one "weapon"
-		   System.out.println("Weapons: " + weaponsList);
-		   
+		   JSONArray weaponsList = (JSONArray) weapons.get("weapons"); //Gets an array
+		   //Gets all the weapons from a Client
+		   for (int k = 0; k < weaponsList.size(); k++) {
+			   String weapon = (String) weaponsList.get(k);
+			   System.out.println("Weapons: " + weapon);   
+		   }
+	
 		   //Gets all the resources *****WORKING*******
 		   JSONObject resourcesObj = (JSONObject) clanStatsArray.get(3);
 		   JSONArray resourcesArray = (JSONArray) resourcesObj.get("resources");
 		   JSONObject resources = (JSONObject) resourcesArray.get(0);
 		   System.out.println(resources);
-		   System.out.println("iron" + resources.get("iron"));
-		   System.out.println("wood" + resources.get("wood"));
-		   System.out.println("powder" + resources.get("powder"));
+		   System.out.println("iron: " + resources.get("iron"));
+		   System.out.println("wood: " + resources.get("wood"));
+		   System.out.println("powder: " + resources.get("powder"));
 		   
 		   JSONObject defensesObj = (JSONObject) clanStatsArray.get(4);
-		   JSONObject defensesArray = (JSONObject) defensesObj.get("defenses");
-		   JSONObject defenses = (JSONObject) resourcesArray.get(0);
-		   System.out.println(defenses);
-
+		   JSONArray defensesArray = (JSONArray) defensesObj.get("defenses");
+		   //Gets ALL the defenses of a clan
+		   for (int k = 0; k < defensesArray.size(); k++) {
+			   String defense = (String) defensesArray.get(0);//Prints a string
+			   System.out.println("Defense: " + defense);   
+		   }
 	   }
-	   
-	   
-	   
-	   /*
-	   for (Object clanObj : clans) {
-		   System.out.println(clanObj);
-	   }
-	   */
-	   
-	   /*
-	   //Gets the stats from the clients 
-	   for (int i = 0; i < clientsArray.size(); i++) {
-		   
-		   JSONObject client = (JSONObject) clientsArray.get(i);
-		   //ID of the client
-		   id = (String) client.get("id");
-		   System.out.println("Username: "+ id);
-		   //Rank of the client
-		   rank = (long) client.get("rank");
-		   System.out.println("Rank: " + rank);
-		   //Importance of the user
-		   importance = (long) client.get("importance");
-		   System.out.println("Importance: " + importance);
-		   //Location of each user
-		   location = (String) client.get("location");
-		   System.out.println("Location: " + location);
-		   //If the user is creator or not
-		   creator = (boolean) client.get("creator");
-		   System.out.println("Creator: " + creator);
-		   //Which clan is the user from
-		   String member = (String) client.get("clan");
-		   System.out.println("Is member from the clan: " + member);
-		   
-		   //Creates a new client when the file is read
-		   //Client gameMember = new Client(id, pw, rank, importance, location, member);
-	   }
-	   
-	   for (int i = 0; i < relicsArray.size(); i++) {
-		   
-		   JSONObject relic = (JSONObject) relicsArray.get(i);
-		   //Location of the relic
-		   relicLocation = (String) relic.get("location");
-		   System.out.println("Relic is located at: " + relicLocation);
-<<<<<<< HEAD
-		   //Clan that has the relic
-		   
-		   
-=======
->>>>>>> branch 'master' of https://github.com/Xcreed/PandoraUnderAttack.git
-	   }
-	   */
 
 	   System.out.println("Done reading file");
 
