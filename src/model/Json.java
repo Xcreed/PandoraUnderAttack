@@ -45,8 +45,8 @@ public class Json {
 	public int iron;
 	public int wood;
 	public int powder;
-
 	private JSONParser parser = new JSONParser();
+	
 	
 	/**
 	 * Constructor for a new user
@@ -60,14 +60,12 @@ public class Json {
 		this.id = id;
 		this.rank = rank;
 		this.importance = importance;
-		
 	}
 	
 	/**
 	 * To instanciate the class with no parameters
 	 */
 	public Json() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -113,7 +111,6 @@ public class Json {
 	    	    while ((length = inStream.read(buffer)) > 0){
 	    	  
 	    	    	outStream.write(buffer, 0, length);
-	    	 
 	    	    }
 	    	 
 	    	    inStream.close();
@@ -152,7 +149,6 @@ public class Json {
 
 		} catch (IOException e) {
 			e.printStackTrace();
-		
 		}
 
 }
@@ -229,8 +225,7 @@ public class Json {
 			   JSONObject relic = (JSONObject) relicsArray.get(j);
 			   //Location of the relic
 			   relicLocation = (String) relic.get("location");
-			   System.out.println("Relic is located at: " + relicLocation);			   
-			   
+			   System.out.println("Relic is located at: " + relicLocation);			     
 		   }
 		   
 		   JSONObject weapons = (JSONObject) clanStatsArray.get(2);
@@ -250,11 +245,7 @@ public class Json {
 		   JSONObject defensesArray = (JSONObject) defensesObj.get("defenses");
 		   JSONObject defenses = (JSONObject) resourcesArray.get(0);
 		   System.out.println(defenses);
-
 	   }
-	   
-	   
-	   
 	   /*
 	   for (Object clanObj : clans) {
 		   System.out.println(clanObj);
