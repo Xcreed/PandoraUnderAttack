@@ -69,7 +69,8 @@ public class Json {
 	public Json() {
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	//Add parameters <Working with clients>
 	/**
 	 * Writes the information in the json file
 	 */
@@ -79,14 +80,16 @@ public class Json {
 		InputStream inStream = null;
 		OutputStream outStream = null;
 		
+		//Trying for a client
 		JSONObject clientObj = new JSONObject();
-		clientObj.put("id", id);
+		
+		clientObj.put("id", "Xcreed2");
 		clientObj.put("pw", pw);
-		clientObj.put("rank", rank);
-		clientObj.put("importance", importance);
+		clientObj.put("rank", 1);
+		clientObj.put("importance", 2);
 		clientObj.put("location", location);
 		clientObj.put("creator", false);
-		clientObj.put("clan", clanName);
+		clientObj.put("clan", "A");
 
 		try {
 					
@@ -137,13 +140,27 @@ public class Json {
 			JSONArray clan = (JSONArray) jsonObject.get("clans");
 			/**iteratorClan.next() = relics**/
 			   
-			//List of clients of the clan
-			JSONObject clients = (JSONObject) clan.get(0);
-			JSONArray clientsArray = (JSONArray) clients.get("clients");
-			
-			//Adds a new client to the array
-			clientsArray.add(clientObj);
-			System.out.print(clientObj);
+			for (int i = 0; i < clan.size(); i++) {
+				   
+				JSONObject clanObj = (JSONObject) clan.get(i);
+				//System.out.println("ClanObj " + clanObj );
+					   
+				//Grabs the name of the Clan
+				String ClanName = (String) clanObj.get("clan name");
+				System.out.println("ClanName " + ClanName);
+								  
+				//Gets all the stats of the clan
+				JSONArray clanStatsArray = (JSONArray) clanObj.get("stats"); 
+				//System.out.println("ClanStatsArray " + clanStatsArray);
+								   
+				JSONObject clients = (JSONObject) clanStatsArray.get(0);
+				JSONArray clientsArray = (JSONArray) clients.get("clients");
+				//Adds a new client to the array
+				clientsArray.add(clientObj);
+				System.out.print(clientObj);
+				
+				System.out.println("ClanStatsArray " + clientsArray);
+			}
 			
 			//Rewrites all the information with the new client
 			fileWriter.write(jsonObject.toJSONString());
