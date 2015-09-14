@@ -45,17 +45,8 @@ public class Client {
 	 * Useful to create clients by terminal
 	 * Works for a new player to be created
 	 */
-	public Client() {
-		//Loads stats from json
-		//Checks if the user has been saved
-		//If not, takes the user to create a new one
-		/*loadStats();
-		if (saved) {
-			game.load();
-		} else { 
-			newPlayer();
-		}*/
-		newPlayer();
+	public Client(String id) {
+		System.out.println("Client ID: " + id);
 	}
 	
 	/**

@@ -97,10 +97,10 @@ public class DoubleLinkedList <T> {
 		//return list;
 	}
 	
-	public DoubleNode getItem(int i) {
+	public Object getItem(int i) {
 		
 		if (head == tail) {
-			return head;
+			return head.getData();
 		}
 		
 		else  {
@@ -111,7 +111,7 @@ public class DoubleLinkedList <T> {
 				
 				temp = head.getNext();
 			}
-			return temp;
+			return temp.getData();
 		}
 			
 	}

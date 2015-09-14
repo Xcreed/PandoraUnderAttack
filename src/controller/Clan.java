@@ -290,7 +290,7 @@ public class Clan implements Observer{
 	 * @return client
 	 */
 	public String getClient(int i) {
-		String tmp = (String) clients.getItem(i).getData();
+		String tmp = (String) ((Object) clients.getItem(i));
 		return tmp;
 	}
 	
