@@ -139,6 +139,13 @@ public class Clan implements Observer{
 	}
 	
 	/**
+	 * Sets an random amount of powder to the account.
+	 */
+	public void addPowderRandom(){
+		powderClan.setRandomAmount();
+	}
+	
+	/**
 	 * Adds an amount of wood.
 	 * 
 	 * @param amount
@@ -146,6 +153,7 @@ public class Clan implements Observer{
 	public void addWood(int amount){
 		woodClan.amountAdding(amount);
 	}
+	
 	
 	/**
 	 * Adds an amount of iron.
@@ -164,12 +172,6 @@ public class Clan implements Observer{
 		powderClan.amountAdding(amount);
 	}
 	
-	/**
-	 * Sets an random amount of powder to the account.
-	 */
-	public void addPowder(){
-		powderClan.setRandomAmount();
-	}
 	
 	/**
 	 * Shows the clan's general account of all resources collected. 
@@ -290,8 +292,12 @@ public class Clan implements Observer{
 	 * @return client
 	 */
 	public String getClient(int i) {
-		String tmp = (String) clients.getItem(i).getData();
-		return tmp;
+		if(i < clients.getLength()){
+			String tmp = (String) clients.getItem(i).getData();
+			return tmp;
+		}else{
+			return null;
+		}
 	}
 	
 	/**

@@ -17,10 +17,7 @@ import model.Json;
  *
  */
 public class Client {
-	
-	//private Resources iron = new Iron();
-	//private Resources wood = new Wood();
-	//private Resources powder = new Powder();
+
 	
 	private String password;
 	private String id;
@@ -143,7 +140,6 @@ public class Client {
 	}
 
 	public String getID() {
-		// TODO Auto-generated method stub
 		return id;
 	}
 }
