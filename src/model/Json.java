@@ -91,7 +91,7 @@ public class Json {
 		clientObj.put("creator", false);
 		
 		//clanName = "A";
-
+		
 		try {
 					
 			//Create a temp file

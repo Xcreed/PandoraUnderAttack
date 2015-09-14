@@ -3,7 +3,9 @@
 	"stats" : [
 		{"clients": [
 			{"id":"JP", "pw":"", "rank":31, "importance": 300, "location":"", "creator": false},
-			{"id":"Xcreed", "pw":"", "rank":80, "importance": 750, "location":"", "creator": false}
+			{"id":"Xcreed", "pw":"", "rank":80, "importance": 750, "location":"", "creator": false},
+			{"id":"JP", "pw":"", "rank":31, "importance": 300, "location":"", "creator": false},
+			{"id":"JP", "pw":"", "rank":31, "importance": 300, "location":"", "creator": false}
 		]},	
 		{"relics" : [
 			{"location":"40, 322"},
@@ -40,5 +42,28 @@
 		{"defenses" :
 			["shield","shield","shield"]
 		}
-	]}		
+	]},
+	{"clan name" : "C",
+	"stats" : [
+		{"clients": [
+			{"id":"JP", "pw":"", "rank":31, "importance": 300, "location":"", "creator": false},
+			{"id":"Xcreed", "pw":"", "rank":80, "importance": 750, "location":"", "creator": false},
+			{"id":"JP", "pw":"", "rank":31, "importance": 300, "location":"", "creator": false},
+			{"id":"JP", "pw":"", "rank":31, "importance": 300, "location":"", "creator": false}
+		]},	
+		{"relics" : [
+			{"location":"40, 322"},
+			{"location":"300, 21"},
+			{"location":"1, 0"}
+		]},
+		{"weapons" :
+			["s","p","s"]
+		},
+		{"resources" : [
+			{"iron" : 0, "wood" : 0, "powder" : 0}
+		]},
+		{"defenses" :
+			["shield","shield","shield"]
+		}
+	]}
 ]}
