@@ -2,6 +2,7 @@ package controller;
 
 import java.util.Scanner;
 
+
 import factory.Iron;
 import factory.Powder;
 import factory.Resources;
@@ -30,7 +31,7 @@ public class Client {
 	//************POR DEFINIR*****************//
 	private long rank; //Not defined
 	private long importance;//Not defined exactly
-	private ChatRoom chatRoom;//Not sure
+	//private ChatRoom chatRoom;//Not sure
 	
 	private Clan clan;
 	//private List clans = new ArrayList<Clan>();
