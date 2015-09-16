@@ -10,6 +10,8 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
+		//new MainWindow();
+		
 		Clan clanA = new Clan("ClanA");
 		Clan clanB = new Clan("ClanB");
 		Client A = new Client("A","..",19,20,"0,0",clanA);

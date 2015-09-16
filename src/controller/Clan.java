@@ -1,5 +1,7 @@
 package controller;
 
+import java.time.LocalTime;
+
 import factory.*;
 import factory.Defense;
 import model.DoubleLinkedList;
@@ -84,20 +86,28 @@ public class Clan implements Observer{
 	 */
 	public void PandoraUnderAttack(Clan targetClan){
 		
+		LocalTime time = LocalTime.now();
+		time.plusSeconds(20);
 		Clan attackingClan = this;
 		
+		//If members are correct, 20 seconds a given to wait, then attack.
 		if(attackingClan.getDamageClan() > targetClan.getResistanceClan()){
+			while(LocalTime.now() != time){
+			}
 			attackClan(attackingClan,targetClan);
-		}else if (attackingClan.getDamageClan() == targetClan.getResistanceClan()){
-			
-			//código del tiempo, poner una variable (segundos) que se vaya restando
-			// hasta 0, si llega a cero y no consigue miemrbos se cancela el ataque
-			//si se añaden miembros, atacar al clan enemigo.
-			
-		}else if (attackingClan.getDamageClan() < targetClan.getResistanceClan()){
-			System.out.println("No attack.");
-		}
 		
+			//If member are incorrect,
+		}else if (attackingClan.getDamageClan() == targetClan.getResistanceClan()){
+			while(LocalTime.now() != time.plusSeconds(20)){
+				if(attackingClan.clients.getLength() > targetClan.clients.getLength()){
+					attackClan(attackingClan,targetClan);	
+				}else{
+					
+				}
+			}
+		}else{
+			System.out.println("Retreat");
+		}
 	}
 	
 	/**
