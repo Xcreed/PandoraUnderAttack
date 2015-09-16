@@ -165,12 +165,4 @@ public class DoubleLinkedList <T> {
 			tail.setNext(null);			
 		}
 	}
-	/**
-	 * removeAtEnd()
-	 * insertInPosition(int position, tdata)
-	 * removeInPosition(int postion, tdata)
-	 */
-
-	
-
 }

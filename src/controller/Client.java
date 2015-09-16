@@ -2,6 +2,7 @@ package controller;
 
 import java.util.Scanner;
 
+
 import factory.Iron;
 import factory.Powder;
 import factory.Resources;
@@ -16,10 +17,7 @@ import model.Json;
  *
  */
 public class Client {
-	
-	//private Resources iron = new Iron();
-	//private Resources wood = new Wood();
-	//private Resources powder = new Powder();
+
 	
 	private String password;
 	private String id;
@@ -30,7 +28,7 @@ public class Client {
 	//************POR DEFINIR*****************//
 	private long rank; //Not defined
 	private long importance;//Not defined exactly
-	private ChatRoom chatRoom;//Not sure
+	//private ChatRoom chatRoom;//Not sure
 	
 	private Clan clan;
 	//private List clans = new ArrayList<Clan>();
@@ -142,7 +140,6 @@ public class Client {
 	}
 
 	public String getID() {
-		// TODO Auto-generated method stub
 		return id;
 	}
 }

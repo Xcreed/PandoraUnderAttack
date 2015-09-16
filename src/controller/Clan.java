@@ -1,6 +1,9 @@
 package controller;
 
+import java.time.LocalTime;
+
 import factory.*;
+import factory.Defense;
 import model.DoubleLinkedList;
 
 /**
@@ -31,7 +34,9 @@ public class Clan implements Observer{
 	public Guns cannon = null; // new gun ((object instantiated);
 	
 	public DefenseFactory defenseFactory = new DefenseFactory(); //factory for making defenses((object instantiated);
-	public SpartanShields spartanshields = null; //new defense ((object instantiated);
+	public Defense spartanshields = null; //new defense ((object instantiated);
+	public Defense kevlarshields = null; //new defense ((object instantited);
+	public Defense lasershields = null; //new defense ((object instantited);
 	
 	public DoubleLinkedList clients = new DoubleLinkedList(); //clan's list of the clients (members);
 	public DoubleLinkedList relics = new DoubleLinkedList(); //clan's most valuable objects(relics);
@@ -79,22 +84,30 @@ public class Clan implements Observer{
 	 * 
 	 * @param targetClan
 	 */
-	public void compareDamageResistance(Clan targetClan){
+	public void PandoraUnderAttack(Clan targetClan){
 		
+		LocalTime time = LocalTime.now();
+		time.plusSeconds(20);
 		Clan attackingClan = this;
 		
+		//If members are correct, 20 seconds a given to wait, then attack.
 		if(attackingClan.getDamageClan() > targetClan.getResistanceClan()){
+			while(LocalTime.now() != time){
+			}
 			attackClan(attackingClan,targetClan);
-		}else if (attackingClan.getDamageClan() == targetClan.getResistanceClan()){
-			
-			//código del tiempo, poner una variable (segundos) que se vaya restando
-			// hasta 0, si llega a cero y no consigue miemrbos se cancela el ataque
-			//si se añaden miembros, atacar al clan enemigo.
-			
-		}else if (attackingClan.getDamageClan() < targetClan.getResistanceClan()){
-			System.out.println("No attack.");
-		}
 		
+			//If member are incorrect,
+		}else if (attackingClan.getDamageClan() == targetClan.getResistanceClan()){
+			while(LocalTime.now() != time.plusSeconds(20)){
+				if(attackingClan.clients.getLength() > targetClan.clients.getLength()){
+					attackClan(attackingClan,targetClan);	
+				}else{
+					
+				}
+			}
+		}else{
+			System.out.println("Retreat");
+		}
 	}
 	
 	/**
@@ -136,6 +149,13 @@ public class Clan implements Observer{
 	}
 	
 	/**
+	 * Sets an random amount of powder to the account.
+	 */
+	public void addPowderRandom(){
+		powderClan.setRandomAmount();
+	}
+	
+	/**
 	 * Adds an amount of wood.
 	 * 
 	 * @param amount
@@ -143,6 +163,7 @@ public class Clan implements Observer{
 	public void addWood(int amount){
 		woodClan.amountAdding(amount);
 	}
+	
 	
 	/**
 	 * Adds an amount of iron.
@@ -161,12 +182,6 @@ public class Clan implements Observer{
 		powderClan.amountAdding(amount);
 	}
 	
-	/**
-	 * Sets an random amount of powder to the account.
-	 */
-	public void addPowder(){
-		powderClan.setRandomAmount();
-	}
 	
 	/**
 	 * Shows the clan's general account of all resources collected. 
@@ -224,19 +239,47 @@ public class Clan implements Observer{
 	}
 	
 	/**
+	 * Buys and creates a kevlar shield.
+	 */
+	public void buyKevlarShields(){
+		if (clients.getLength() >= 1 & ironClan.getAmount() > 2 & powderClan.getAmount() > 1 ){
+			ironClan.amountSubtraction(2);
+			powderClan.amountSubtraction(1);
+			kevlarshields = defenseFactory.makeDefense("KS");
+			System.out.println("KEVLAR PROTECTION");
+			defenses.insertAtEnd(kevlarshields);
+			resistanceClan += kevlarshields.getResistance();
+		}
+	}
+	
+	/**
 	 * Buys and creates a spartan shield.
 	 */
 	public void buySpartanShields(){
-		if (clients.getLength() >= 1 & ironClan.getAmount() >= 2 & woodClan.getAmount() >= 1 ){
+		if (clients.getLength() >= 1 & ironClan.getAmount() > 2 & woodClan.getAmount() > 1 ){
 			ironClan.amountSubtraction(2);
 			woodClan.amountSubtraction(1);
 			spartanshields = defenseFactory.makeDefense("SS");
 			System.out.println("DEFEND SPARTA");
 			defenses.insertAtEnd(spartanshields);
-			resistanceClan +=spartanshields.getResistance();
+			resistanceClan += spartanshields.getResistance();
 		}
 	}
 	
+	/**
+	 * Buys and creates a laser shield.
+	 */
+	public void buyLaserShields(){
+		if (clients.getLength() >= 1 & ironClan.getAmount() > 2 & woodClan.getAmount() > 2 & powderClan.getAmount() > 2 ){
+			ironClan.amountSubtraction(2);
+			woodClan.amountSubtraction(2);
+			powderClan.amountSubtraction(2);
+			lasershields = defenseFactory.makeDefense("LS");
+			System.out.println("LASER SHIELDS");
+			defenses.insertAtEnd(lasershields);
+			resistanceClan += lasershields.getResistance();
+		}
+	}
 	
 	/**
 	 * Returns a boolean whether the clan has a creator or not. 
@@ -259,8 +302,12 @@ public class Clan implements Observer{
 	 * @return client
 	 */
 	public String getClient(int i) {
-		String tmp = (String) clients.getItem(i).getData();
-		return tmp;
+		if(i < clients.getLength()){
+			String tmp = (String) clients.getItem(i).getData();
+			return tmp;
+		}else{
+			return null;
+		}
 	}
 	
 	/**

@@ -13,6 +13,7 @@ public class Relic {
 	
 	
 	/**
+	 * Makes relics for one clan.
 	 * 
 	 * @return relic
 	 */
