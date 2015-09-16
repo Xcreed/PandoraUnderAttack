@@ -134,9 +134,96 @@ public class Json {
 			JSONArray clan = (JSONArray) jsonObject.get("clans");
 			/**iteratorClan.next() = relics**/
 			   
-			//List of clients of the clan
-			JSONObject clients = (JSONObject) clan.get(0);
-			JSONArray clientsArray = (JSONArray) clients.get("clients");
+			for (int i = 0; i < clan.size(); i++) {
+				   
+				JSONObject clanObj = (JSONObject) clan.get(i);
+				//System.out.println("ClanObj " + clanObj );
+					   
+				//Grabs the name of the Clan
+				String ClanName = (String) clanObj.get("clan name");
+				System.out.println("ClanName " + ClanName + "," + clanName);
+								  
+				//Checks if it is the right clan with the one from the new client
+				if (ClanName.equals(clanName)) {
+					//Gets all the stats of the clan
+					JSONArray clanStatsArray = (JSONArray) clanObj.get("stats"); 
+					//System.out.println("ClanStatsArray " + clanStatsArray);
+									   
+					JSONObject clients = (JSONObject) clanStatsArray.get(0);
+					JSONArray clientsArray = (JSONArray) clients.get("clients");
+					//Adds a new client to the array
+					clientsArray.add(clientObj);
+					System.out.print(clientObj);
+					
+					System.out.println("ClanStatsArray " + clientsArray);
+				}
+			}
+			
+			//Rewrites all the information with the new client
+			fileWriter.write(jsonObject.toJSONString());
+			fileWriter.flush();
+			fileWriter.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		
+		}
+
+	}
+	
+	/**
+	 * Writes a new relic in the json file
+	 */
+	@SuppressWarnings("unchecked")
+	public void write(String location) {
+		
+		InputStream inStream = null;
+		OutputStream outStream = null;
+		
+		//Trying for a client
+		JSONObject relicObj = new JSONObject();
+		
+		relicObj.put("location", location);
+		clanName = "A";
+				
+		try {
+					
+			//Create a temp file
+			File tmp = File.createTempFile("stats",".tmp");
+			
+			//Reads the file
+			//Object obj = null;
+			Object temp = null; //Temp Json file
+			try {
+				//obj = parser.parse(new FileReader(file));
+				
+				System.out.println("Temp file : " + tmp.getAbsolutePath());
+	    		
+				
+				//Copy all the information from the original to the temp file
+	    	    inStream = new FileInputStream(file);
+	    	    outStream = new FileOutputStream(tmp);
+	        	
+	    	    byte[] buffer = new byte[1024];
+	    		
+	    	    int length;
+	    	    //copy the file content in bytes 
+	    	    while ((length = inStream.read(buffer)) > 0){
+	    	  
+	    	    	outStream.write(buffer, 0, length);
+	    	 
+	    	    }
+	    	 
+	    	    inStream.close();
+	    	    outStream.close();
+	    	    
+	    	    //Reads the temp file, now with information inside
+	    	    temp = parser.parse(new FileReader(tmp));
+	    	    
+	    	    System.out.println("File copied successful!");
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
 			
 			//Adds a new client to the array
 			clientsArray.add(clientObj);
