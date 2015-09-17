@@ -1,11 +1,69 @@
-{ "clans" : [
-	{"clients": [
-		{"saved":false, "id":"JP", "pw":"", "rank":31, "importance": 300, "location":"", "creator": false, "clan":"F2"},
-		{"saved":false, "id":"Xcreed", "pw":"", "rank":80, "importance": 750, "location":"", "creator": false, "clan":"F1"}
-	]},	
-	{"relics" : [
-		{"location":"40, 322", "clan":"F2"},
-		{"location":"300, 21", "clan":"F2"},
-		{"location":"1, 0", "clan":"F2"}
+{"clans" : [
+	{"clan name" : "A",
+	"stats" : [
+		{"clients": [
+			{"id":"JP", "rank":31, "importance": 300, "location":"", "creator": false},
+			{"id":"Xcreed", "rank":80, "importance": 750, "location":"", "creator": false},
+			{"id":"JP", "rank":31, "importance": 300, "location":"", "creator": false},
+			{"id":"JP", "rank":31, "importance": 300, "location":"", "creator": false}
+		]},	
+		{"relics" : [
+			{"location":"40, 322"},
+			{"location":"300, 21"},
+			{"location":"1, 0"}
+		]},
+		{"weapons" :
+			["s","p","s"]
+		},
+		{"resources" : [
+			{"iron" : 0, "wood" : 0, "powder" : 0}
+		]},
+		{"defenses" :
+			["shield","shield","shield"]
+		}
+	]},
+	{"clan name" : "B",
+	"stats" : [
+		{"clients": [
+			{"id":"JP", "rank":31, "importance": 300, "location":"", "creator": false},
+			{"id":"Xcreed", "rank":80, "importance": 750, "location":"", "creator": false}
+		]},	
+		{"relics" : [
+			{"location":"40, 322"},
+			{"location":"300, 21"},
+			{"location":"1, 0"}
+		]},
+		{"weapons" :
+			["s","p","s"]
+		},
+		{"resources" : [
+			{"iron" : 0, "wood" : 0, "powder" : 0}
+		]},
+		{"defenses" :
+			["shield","shield","shield"]
+		}
+	]},
+	{"clan name" : "C",
+	"stats" : [
+		{"clients": [
+			{"id":"JP", "rank":31, "importance": 300, "location":"", "creator": false},
+			{"id":"Xcreed","rank":80, "importance": 750, "location":"", "creator": false},
+			{"id":"JP", "rank":31, "importance": 300, "location":"", "creator": false},
+			{"id":"JP", "rank":31, "importance": 300, "location":"", "creator": false}
+		]},	
+		{"relics" : [
+			{"location":"40, 322"},
+			{"location":"300, 21"},
+			{"location":"1, 0"}
+		]},
+		{"weapons" :
+			["s","p","s"]
+		},
+		{"resources" : [
+			{"iron" : 0, "wood" : 0, "powder" : 0}
+		]},
+		{"defenses" :
+			["shield","shield","shield"]
+		}
 	]}
 ]}

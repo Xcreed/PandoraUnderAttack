@@ -97,10 +97,10 @@ public class DoubleLinkedList <T> {
 		//return list;
 	}
 	
-	public DoubleNode getItem(int i) {
+	public Object getItem(int i) {
 		
 		if (head == tail) {
-			return head;
+			return head.getData();
 		}
 		
 		else  {
@@ -111,7 +111,7 @@ public class DoubleLinkedList <T> {
 				
 				temp = head.getNext();
 			}
-			return temp;
+			return temp.getData();
 		}
 			
 	}
@@ -165,4 +165,37 @@ public class DoubleLinkedList <T> {
 			tail.setNext(null);			
 		}
 	}
+
+	/**
+	 * removeAtEnd()
+	 * insertInPosition(int position, tdata)
+	 * removeInPosition(int postion, tdata)
+	 */
+
+	/**
+	 * Return the search  element, else false.
+	 * @param pData
+	 * @return pData
+	 */
+	public boolean contains(String pData){
+		DoubleNode<T> data = new DoubleNode<T>((T) pData);
+		boolean bool = false;
+	
+		if(isEmpty()){
+			return false;
+		}else{
+			DoubleNode tmp = head; 
+			while(tmp != null){
+				if(tmp.getData().equals(pData)){
+					bool = true;
+					return bool;
+				}else{
+					tmp = tmp.getNext(); 
+				} 
+			}
+			System.out.println("Item not found");
+			return bool;
+		}
+	}
+
 }
