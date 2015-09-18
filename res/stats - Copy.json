@@ -2,10 +2,10 @@
 	{"clan name" : "A",
 	"stats" : [
 		{"clients": [
-			{"id":"JP", "rank":31, "importance": 300, "location":"", "creator": false},
-			{"id":"Xcreed", "rank":80, "importance": 750, "location":"", "creator": false},
-			{"id":"JP", "rank":31, "importance": 300, "location":"", "creator": false},
-			{"id":"JP", "rank":31, "importance": 300, "location":"", "creator": false}
+			{"id":"JP", "rank":31, "importance": 300, "location":""},
+			{"id":"Xcreed", "rank":80, "importance": 750, "location":""},
+			{"id":"JP", "rank":31, "importance": 300, "location":""},
+			{"id":"JP", "rank":31, "importance": 300, "location":""}
 		]},	
 		{"relics" : [
 			{"location":"40, 322"},
@@ -25,8 +25,8 @@
 	{"clan name" : "B",
 	"stats" : [
 		{"clients": [
-			{"id":"JP", "rank":31, "importance": 300, "location":"", "creator": false},
-			{"id":"Xcreed", "rank":80, "importance": 750, "location":"", "creator": false}
+			{"id":"JP", "rank":31, "importance": 300, "location":""},
+			{"id":"Xcreed", "rank":80, "importance": 750, "location":""}
 		]},	
 		{"relics" : [
 			{"location":"40, 322"},
@@ -46,10 +46,10 @@
 	{"clan name" : "C",
 	"stats" : [
 		{"clients": [
-			{"id":"JP", "rank":31, "importance": 300, "location":"", "creator": false},
-			{"id":"Xcreed","rank":80, "importance": 750, "location":"", "creator": false},
-			{"id":"JP", "rank":31, "importance": 300, "location":"", "creator": false},
-			{"id":"JP", "rank":31, "importance": 300, "location":"", "creator": false}
+			{"id":"JP", "rank":31, "importance": 300, "location":""},
+			{"id":"Xcreed","rank":80, "importance": 750, "location":""},
+			{"id":"JP", "rank":31, "importance": 300, "location":""},
+			{"id":"JP", "rank":31, "importance": 300, "location":""}
 		]},	
 		{"relics" : [
 			{"location":"40, 322"},
