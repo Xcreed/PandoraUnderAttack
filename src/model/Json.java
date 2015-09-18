@@ -1,6 +1,5 @@
 package model;
 
-import java.awt.Point;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -44,13 +43,14 @@ public class Json {
 	public int iron;
 	public int wood;
 	public int powder;
-	public DoubleLinkedList clansGame = new DoubleLinkedList();//Used to load the clans
-	public DoubleLinkedList<Comparable> clansCreated = new DoubleLinkedList();//Used to check the clans created
-
+	public static DoubleLinkedList clansGame;//Used to load the clans
+	public static DoubleLinkedList<Comparable> clansCreated = new DoubleLinkedList();//Used to check the clans created
+	private static DoubleLinkedList clientsReg = new DoubleLinkedList();
+	public static DoubleLinkedList<Client> clientsInTotal = new DoubleLinkedList();
 	private JSONParser parser = new JSONParser();
 	
 	/**
-	 * To instanciate the class with no parameters
+	 * To instantiate the class with no parameters
 	 */
 	public Json() {
 		// TODO Auto-generated constructor stub
@@ -75,7 +75,7 @@ public class Json {
 		clientObj.put("location", location);
 		//clientObj.put("creator", false);
 		
-		//clanName = "A";
+		//clanName = "C";
 		
 		try {
 					
@@ -391,14 +391,14 @@ public class Json {
 
 			//Each clan in the file <This is an array>
 			JSONArray clans = (JSONArray) jsonObject.get("clans");
-			System.out.println("Complete file " + clans); 
 
-
+			clansGame = new DoubleLinkedList();
+			
 			//Takes each clan separately
 			for (int i = 0; i < clans.size(); i++) {
-
+				
 				JSONObject clanObj = (JSONObject) clans.get(i);
-				System.out.println("ClanObj " + clanObj );
+				//System.out.println("ClanObj " + clanObj );
 
 				//Grabs the name of the Clan
 				String ClanName = (String) clanObj.get("clan name");
@@ -407,37 +407,37 @@ public class Json {
 				Clan newClan = new Clan(ClanName);
 				//Gets all the stats of the clan
 				JSONArray clanStatsArray = (JSONArray) clanObj.get("stats"); 
-				System.out.println("ClanStatsArray " + clanStatsArray);
+				//System.out.println("ClanStatsArray " + clanStatsArray);
 
 				//List of clients of the clan
 				JSONObject clients = (JSONObject) clanStatsArray.get(0);
 				JSONArray clientsArray = (JSONArray) clients.get("clients"); 
-				System.out.println("ClientsArray " + clientsArray); //Add the code commented below
+				//System.out.println("ClientsArray " + clientsArray); //Add the code commented below
 
 				//Gets the stats from the clients 
 				for (int j = 0; j < clientsArray.size(); j++) {
 
 					JSONObject client = (JSONObject) clientsArray.get(j);
 					//ID of the client
-					id = (String) client.get("id");
-					System.out.println("Username: "+ id);
+					String id1 = (String) client.get("id");
+					System.out.println("Username: "+ id1);
 					//Rank of the client
-					rank = (long) client.get("rank");
-					System.out.println("Rank: " + rank);
+					Long rank = (long) client.get("rank");
+//					System.out.println("Rank: " + rank);
 					//Importance of the user
-					importance = (long) client.get("importance");
-					System.out.println("Importance: " + importance);
+					Long importance = (long) client.get("importance");
+//					System.out.println("Importance: " + importance);
 					//Location of each user
-					location = (String) client.get("location");
-					System.out.println("Location: " + location);
+					String location = (String) client.get("location");
+//					System.out.println("Location: " + location);
 					//If the user is creator or not
-					creator = (boolean) client.get("creator");
-					System.out.println("Creator: " + creator);
+					//creator = (boolean) client.get("creator");
+					//System.out.println("Creator: " + creator);
 					//Which clan is the user from
-					System.out.println("Is member from the clan: " + ClanName);
+//					System.out.println("Is member from the clan: " + ClanName);
 
 					//Creates a new client when the file is read
-					Client newClient = new Client(id);
+					Client newClient = new Client(id1, rank, importance, location);
 					newClan.receiveMember(newClient);
 				}
 
@@ -451,14 +451,14 @@ public class Json {
 					JSONObject relic = (JSONObject) relicsArray.get(j);
 					//Location of the relic
 					relicLocation = (String) relic.get("location");
-					System.out.println("Relic is located at: " + relicLocation);	
+//					System.out.println("Relic is located at: " + relicLocation);	
 					newClan.addRelic();
 					//Needs to set the location of the relic 
 
 				}
 
-				newClan.clients.print();
-				newClan.relics.print();
+//				newClan.clients.print();
+//				newClan.relics.print();
 
 				JSONObject weapons = (JSONObject) clanStatsArray.get(2);
 				JSONArray weaponsList = (JSONArray) weapons.get("weapons"); //Gets an array
@@ -466,17 +466,17 @@ public class Json {
 				//Gets all the weapons from a Client
 				for (int k = 0; k < weaponsList.size(); k++) {
 					String weapon = (String) weaponsList.get(k);
-					System.out.println("Weapons: " + weapon);   
+//					System.out.println("Weapons: " + weapon);   
 				}
 
 				//Gets all the resources *****WORKING*******
 				JSONObject resourcesObj = (JSONObject) clanStatsArray.get(3);
 				JSONArray resourcesArray = (JSONArray) resourcesObj.get("resources");
 				JSONObject resources = (JSONObject) resourcesArray.get(0);
-				System.out.println(resources);
-				System.out.println("iron: " + resources.get("iron"));
-				System.out.println("wood: " + resources.get("wood"));
-				System.out.println("powder: " + resources.get("powder"));
+//				System.out.println(resources);
+//				System.out.println("iron: " + resources.get("iron"));
+//				System.out.println("wood: " + resources.get("wood"));
+//				System.out.println("powder: " + resources.get("powder"));
 
 				
 				JSONObject defensesObj = (JSONObject) clanStatsArray.get(4);
@@ -485,9 +485,10 @@ public class Json {
 				//Gets ALL the defenses of a clan
 				for (int k = 0; k < defensesArray.size(); k++) {
 					String defense = (String) defensesArray.get(0);//Prints a string
-					System.out.println("Defense: " + defense);   
+					//System.out.println("Defense: " + defense);   
 				}
 				clansGame.insertAtEnd(newClan);
+				//System.out.println("Complete length" + clansGame.getLength());
 			}//End of the clan loop
 
 			System.out.println("Done reading file");
@@ -507,7 +508,11 @@ public class Json {
 	 * Works to create a clan with everything from the read method
 	 * @return
 	 */
+	@SuppressWarnings("rawtypes")
 	public DoubleLinkedList getClans() {
+		read();
+//		System.out.println("Game" + clansGame.getLength());
+//		System.out.println("CREATED" + clansCreated.getLength());
 		return clansGame;
 	}
 	
@@ -552,5 +557,31 @@ public class Json {
 		System.out.println(created);
 		return created;
 	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public DoubleLinkedList getClients() {
+		
+		read();
+		DoubleLinkedList clans = clansGame;
+		System.out.println("Clans: " + clans.getLength());
+
+		for (int i = 0; i < clans.getLength(); i++) {
+			clan = (Clan) clans.getItem(i);
+			System.out.println("Clan" + clan.getClients().getLength());
+			
+			//Throwing null for the id/stats
+			for (int j = 0; j < clan.getClients().getLength(); j++) {
+				Client client = clan.getClient(j);
+				
+				clientsInTotal.insertAtEnd(client);//List with Client objects
+				System.out.println(client.getID());
+				clientsReg.insertAtEnd(client.getID());//List with client id's
+			}
+		}
+		System.out.println("CHOCO" + clientsReg.getLength());
+		return clientsReg;
+	}
+	
+	
 
 }
