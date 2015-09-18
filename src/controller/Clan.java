@@ -301,9 +301,9 @@ public class Clan implements Observer{
 	 * @param i
 	 * @return client
 	 */
-	public String getClient(int i) {
+	public Client getClient(int i) {
 		if(i < clients.getLength()){
-			String tmp = (String) clients.getItem(i).getData();
+			Client tmp = (Client) clients.getItem(i);
 			return tmp;
 		}else{
 			return null;

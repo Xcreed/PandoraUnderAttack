@@ -106,12 +106,17 @@ public class DoubleLinkedList <T> {
 		else  {
 		
 			DoubleNode temp = head;
-			
-			for (int j = 0; j != i; j++) {
-				
-				temp = head.getNext();
+			if (temp != null) {
+				for (int j = 0; j != i; j++) {
+					
+					temp = temp.getNext();
+				}
+			} else {
+				System.out.println("Index out of reach");
+				return null;
 			}
 			return temp.getData();
+
 		}
 			
 	}
