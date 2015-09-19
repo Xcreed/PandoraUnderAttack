@@ -23,7 +23,7 @@ public class Client {
 	private String id;
 	private IPAddress ip;
 	private String clanName;
-	private Server server;//Not sure
+	private ServerWrite server;//Not sure
 	
 	//************POR DEFINIR*****************//
 	private long rank; //Not defined
@@ -55,18 +55,20 @@ public class Client {
 	 * @param importance
 	 * @param location
 	 */
-	public Client(String id, String pw, long rank, long importance, String location,
-			Clan clan) {
+	public Client(String id, long rank, long importance, String location) {
 		this.id = id;
-		this.password = pw;
 		this.rank = rank;
 		this.location = location;
 		this.importance = importance;
-		this.clanName = clan.id;
-		this.clan = clan;
-		joinClan();
+		//this.clanName = clan.id;
+//		this.clan = clan;
+//		joinClan();
 	}
 	
+	public Client() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getClan() {
 		return clan.id;
 	}
@@ -84,7 +86,9 @@ public class Client {
 	 * <<Adds id or full client instance?>>
 	 */
 	@SuppressWarnings("unchecked")
-	private void joinClan() { 
+	public void joinClan(Clan clan) { 
+		this.clan = clan;
+		this.clanName = clan.id;
 		clan.receiveMember(this); //Adds the instance of the user to the list clients registered
 		//Not adding to the clan automatically
 	}
@@ -114,13 +118,6 @@ public class Client {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter a username:");
 		id = scanner.nextLine();
-		scanner.reset();
-		System.out.println("Enter a password:");
-		password = scanner.nextLine();
-		Json json = new Json(id,password,0,1); //Missing clan, location and creator
-		json.write();
-//		System.out.println(this.id);
-//		System.out.println(this.password);
 
 //		if (clan.hasCreator()) {
 //			return;
