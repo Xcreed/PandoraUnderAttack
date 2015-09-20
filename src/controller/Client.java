@@ -23,7 +23,7 @@ public class Client {
 	private String id;
 	private IPAddress ip;
 	private String clanName;
-	private Server server;//Not sure
+	private ServerWrite server;//Not sure
 	
 	//************POR DEFINIR*****************//
 	private long rank; //Not defined
