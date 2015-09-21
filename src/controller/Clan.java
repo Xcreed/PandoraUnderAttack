@@ -18,8 +18,10 @@ public class Clan implements Observer{
 	public String id; //the id of the clan;
 	private Creator creator; // each clan will have a creator;
 	
-	private int damageClan;
-	private int resistanceClan;
+	private Time runningTime = new Time(); // running time for the game;
+	
+	private int damageClan; //attacking attribute of the clan;
+	private int resistanceClan; //defensive attribute of the clan;
 	
 	public Wood woodClan = new Wood(); //clan's wood resource (object instantiated);
 	public Iron ironClan = new Iron(); //clan's iron resource (object instantiated);
@@ -83,18 +85,21 @@ public class Clan implements Observer{
 	 */
 	public void PandoraUnderAttack(Clan targetClan){
 		
-		//LocalTime time = LocalTime.now();
-		//time.plusSeconds(20);
-		Clan attackingClan = this;
+		runningTime.run();// time starts running when PuA() is called;
+		LocalTime waitingTime = LocalTime.now(); //gets the time for waiting;
+		waitingTime.plusSeconds(20); //adds to the waiting time 20s
+		Clan attackingClan = this; //refers the attacking clan;
 		
 		//If members are correct, 20 seconds a given to wait, then attack.
 		if(attackingClan.getDamageClan() > targetClan.getResistanceClan()){
-			//while(LocalTime.now() != time){
-			//}
+			//while (true){
+				//if(runningTime.getTime() == waitingTime){
 			attackClan(attackingClan,targetClan);
+				//}
+			//}
 		
 			//If member are incorrect,
-		}else if (attackingClan.getDamageClan() == targetClan.getResistanceClan()){
+	}else if (attackingClan.getDamageClan() == targetClan.getResistanceClan()){
 			//while(LocalTime.now() != time.plusSeconds(20)){
 				//if(attackingClan.clients.getLength() > targetClan.clients.getLength()){
 					attackClan(attackingClan,targetClan);	
