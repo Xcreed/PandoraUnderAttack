@@ -21,9 +21,6 @@ public class Clan implements Observer{
 	private int damageClan;
 	private int resistanceClan;
 	
-	//private Image emblem; //clan's image
-	
-	
 	public Wood woodClan = new Wood(); //clan's wood resource (object instantiated);
 	public Iron ironClan = new Iron(); //clan's iron resource (object instantiated);
 	public Powder powderClan = new Powder(); //clan's powder resources (object instantiated);
@@ -86,29 +83,27 @@ public class Clan implements Observer{
 	 */
 	public void PandoraUnderAttack(Clan targetClan){
 		
-		LocalTime time = LocalTime.now();
-		time.plusSeconds(20);
+		//LocalTime time = LocalTime.now();
+		//time.plusSeconds(20);
 		Clan attackingClan = this;
 		
 		//If members are correct, 20 seconds a given to wait, then attack.
 		if(attackingClan.getDamageClan() > targetClan.getResistanceClan()){
-			while(LocalTime.now() != time){
-			}
+			//while(LocalTime.now() != time){
+			//}
 			attackClan(attackingClan,targetClan);
 		
 			//If member are incorrect,
 		}else if (attackingClan.getDamageClan() == targetClan.getResistanceClan()){
-			while(LocalTime.now() != time.plusSeconds(20)){
-				if(attackingClan.clients.getLength() > targetClan.clients.getLength()){
+			//while(LocalTime.now() != time.plusSeconds(20)){
+				//if(attackingClan.clients.getLength() > targetClan.clients.getLength()){
 					attackClan(attackingClan,targetClan);	
-				}else{
+				//}else{
 					
 				}
-			}
-		}else{
-			System.out.println("Retreat");
-		}
+			//}
 	}
+	
 	
 	/**
 	 * Action 1: Pandora Under Attack

@@ -10,45 +10,55 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		//new MainWindow();
 		
+		System.out.println("Four members appeared:");
+		Client Kappa = new Client();
+		Client Omega = new Client();
+		Client  Hugo = new Client();
+		Client  Val = new Client();
+		System.out.println("--------------------------------");
+		System.out.println("--------------------------------");
+		System.out.println("Creation of two clans: A and B, both starts with one relic and 0 resources, weapons and defenses.");
 		Clan clanA = new Clan("ClanA");
 		Clan clanB = new Clan("ClanB");
-		Client A = new Client("A","..",19,20,"0,0",clanA);
-		Client S = new Client("S","..",19,20,"0,0",clanA);
-		Client D = new Client("D","..",19,20,"0,0",clanA);
-		Client F = new Client("F","..",19,20,"0,0",clanB);
-		
-//		clanA.receiveMember(A.getID());
-//		clanB.receiveMember(D.getID());
-//		clanB.receiveMember(S.getID());
-//		clanB.receiveMember(F.getID());
-		
 		clanA.addRelic();
 		clanB.addRelic();
-		
-		
-		//System.out.println(clan.getClient(2));
-		
-		System.out.println("Se añaden recursos a los clanes y se muestran los del clanA al final. ");
+		System.out.println("--------------------------------");
+		System.out.println("--------------------------------");
+		System.out.println("Kappa, Omega and Val join clan A, Hugo join clan B");
+		Kappa.joinClan(clanA);
+		Omega.joinClan(clanA);
+		Val.joinClan(clanA);
+		Hugo.joinClan(clanB);
+		System.out.println("--------------------------------");
+		System.out.println("--------------------------------");
+		System.out.println("Resources (10 of each) are added to the clan A. ");
 		clanA.addWood(10);
 		clanA.addIron(10);
 		clanA.addPowder(10);
-		clanB.addWood(10);
-		clanB.addIron(10);
-		clanB.addPowder(10);
+		System.out.println("Amount of resources clan A: ");
 		clanA.showResources();
 		System.out.println("--------------------------------");
 		System.out.println("--------------------------------");
-		System.out.println("Se compran las armas del clanA");
+		System.out.println("Resources (10 of each) are added to the clan B. ");
+		clanB.addWood(10);
+		clanB.addIron(10);
+		clanB.addPowder(10);
+		System.out.println("Amount of resources clan B: ");
+		clanB.showResources();
+		System.out.println("--------------------------------");
+		System.out.println("--------------------------------");
+		System.out.println("Clan A buys three different weapons.");
 		clanA.buyPistol();
 		clanA.buyCannon();
 		clanA.buySword();
+		clanA.showResources();
 		System.out.println("--------------------------------");
 		System.out.println("--------------------------------");
-		System.out.println("Se compran las defensas del clanB.");
+		System.out.println("Clan B buys two different defenses.");
 		clanB.buySpartanShields();
 		clanB.buyLaserShields();
+		clanB.showResources();
 		System.out.println("--------------------------------");
 		System.out.println("--------------------------------");
 		System.out.println("ClanA clients length:" + clanA.clients.getLength());
@@ -56,12 +66,47 @@ public class Main {
 		System.out.println("--------------------------------");
 		System.out.println("--------------------------------");
 		System.out.println("ClanA relics length:" + clanA.relics.getLength());
+		System.out.println("ClanB relics length:" + clanB.relics.getLength());
 		System.out.println("--------------------------------");
 		System.out.println("--------------------------------");
-		System.out.println("clanA ataca al clanB");
-		clanB.PandoraUnderAttack(clanA);
+		System.out.println("clanA attacks clanB");
+		clanA.PandoraUnderAttack(clanB);
 		System.out.println("ClanA relics length:" + clanA.relics.getLength());
 		System.out.println("ClanB relics length:" + clanB.relics.getLength());
-				
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 }

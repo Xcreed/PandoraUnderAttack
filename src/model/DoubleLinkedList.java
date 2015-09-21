@@ -80,13 +80,14 @@ public class DoubleLinkedList <T> {
 	
 	/**
 	 * Return a list (type StringBuilder) that shows all the node together.
+	 * @return 
 	 * 
 	 * @return list 
 	 */
 	public void print(){	
 		
 		StringBuilder list = new StringBuilder();
-		DoubleNode tmp = head;
+		DoubleNode<T> tmp = head;
 		
 		while(tmp != null){
 			//System.out.println(list);
