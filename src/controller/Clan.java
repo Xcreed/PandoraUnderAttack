@@ -112,7 +112,6 @@ public class Clan implements Observer{
 	
 	
 	/**
-	 * Action 1: Pandora Under Attack
 	 * Attack an enemy clan.
 	 * 
 	 * @param targetClan
