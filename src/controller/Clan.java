@@ -85,6 +85,7 @@ public class Clan implements Observer{
 	 */
 	public void PandoraUnderAttack(Clan targetClan){
 		
+		//
 		runningTime.run();// time starts running when PuA() is called;
 		LocalTime waitingTime = LocalTime.now(); //gets the time for waiting;
 		waitingTime.plusSeconds(20); //adds to the waiting time 20s
