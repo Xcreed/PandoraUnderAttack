@@ -41,7 +41,7 @@ public class Client {
 	
 	/**
 	 * Useful to create clients by terminal
-	 * Works for a new player to be created
+	 * works for a new player to be create.
 	 */
 	public Client(String id) {
 		System.out.println("Client ID: " + id);
@@ -65,17 +65,25 @@ public class Client {
 //		joinClan();
 	}
 	
+	/**
+	 * Empty constructor.
+	 */
 	public Client() {
-		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Returns the clan from which this client
+	 * is member.
+	 * 
+	 * @return clan.id
+	 */
 	public String getClan() {
 		return clan.id;
 	}
 	
 	/**
 	 * Checks if the client is inside the clan
-	 * If not, will ask to join
+	 * If not, will ask to join.
 	 * @param clan
 	 */
 	private void checkClan(String clan) {	
@@ -114,6 +122,9 @@ public class Client {
 		json.read();
 	}
 	
+	/**
+	 * Puts a new player (client) in the game.
+	 */
 	private void newPlayer() {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter a username:");
@@ -126,7 +137,12 @@ public class Client {
 //		}
 		
 	}
-
+	
+	/**
+	 * Returns the id of user.
+	 * 
+	 * @return id
+	 */
 	public String getID() {
 		return id;
 	}
